@@ -1,6 +1,9 @@
 # Local imports
 from extract_leads_report import leads_report_info
 from auxiliar_fucntions import get_ny_time_and_start_of_day, schedule_report
+from calificate_calls import calificate_calls_from_df
+from df_to_pdf_calification import df_to_pdf
+from send_emails import send_email_with_attachment
 
 # Third-party imports
 import pandas as pd
@@ -17,8 +20,30 @@ def main_automatic_report():
         # Get the leads report
         leads_report = leads_report_info(start_of_day_ny, current_time_ny)
 
+        # Check if the leads report is not empty
+        if leads_report.empty:
+            return "The leads report is empty"
+        
+        # Calificate the calls
+        else:
+            print(len(leads_report))
+            leads_report = leads_report.head(5) # DELETE THIS LINE IN PRODUCTION
+            leads_report = calificate_calls_from_df(leads_report)
+
+        # Convert the DataFrame to a PDF
+        df_to_pdf(leads_report, 'calificate_calls.pdf')
+
+        ## Send the email with the attachment
+        sender_email = "reports@salestrainerai.com"
+        receiver_email = "bry3638@gmail.com"
+        subject = f"Daily Leads Reports for the day {start_of_day_ny.split(' ')[0]}"
+        body = "This email conatint a attached PDF with the repots for leads today"
+        attachment_path = "calificate_calls.pdf"
+
+        send_email_with_attachment(sender_email, receiver_email, subject, body, attachment_path)
+
         # Print the first 5 rows of the DataFrame
-        print(leads_report.head())
+        leads_report.to_csv('calificate_calls.csv', index=False)
 
         # Success message
         return "success"
