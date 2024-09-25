@@ -1,3 +1,4 @@
+import os
 import time
 from datetime import datetime
 import pytz
@@ -51,7 +52,9 @@ def schedule_report(report_function, start_hour: int=18, start_minute: int=0, en
             # If not within the interval, sleep for a while before checking again
             print("Not in the time interval. Checking again in 30 minutes.")
             time.sleep(15 * 60)
-            
+
+def absolute_path(relative_path):
+    return os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), relative_path))     
 # Example usage
 if __name__ == "__main__":
     current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()

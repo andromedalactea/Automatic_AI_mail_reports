@@ -1,12 +1,13 @@
 # Local imports
 from extract_leads_report import leads_report_info
-from auxiliar_fucntions import get_ny_time_and_start_of_day, schedule_report
+from auxiliar_fucntions import get_ny_time_and_start_of_day, schedule_report, absolute_path
 from calificate_calls import calificate_calls_from_df
 from df_to_pdf_calification import df_to_pdf
 from send_emails import send_email_with_attachment
 
 # Third-party imports
 import pandas as pd
+pd.set_option('display.max_columns', None) 
 
 # Define the main function
 def main_automatic_report():
@@ -27,11 +28,12 @@ def main_automatic_report():
         # Calificate the calls
         else:
             print(len(leads_report))
-            leads_report = leads_report.head(5) # DELETE THIS LINE IN PRODUCTION
+            leads_report = leads_report.head(2) # DELETE THIS LINE IN PRODUCTION
             leads_report = calificate_calls_from_df(leads_report)
 
         # Convert the DataFrame to a PDF
-        df_to_pdf(leads_report, 'calificate_calls.pdf')
+        css_path = absolute_path('../css/style_report.css')
+        df_to_pdf(leads_report, 'calificate_calls.pdf', css_path)
 
         ## Send the email with the attachment
         sender_email = "reports@salestrainerai.com"

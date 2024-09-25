@@ -73,7 +73,7 @@ def calificate_calls_from_df(df: pd.DataFrame) -> pd.DataFrame:
             transcript = f"Error: {str(e)}"
         
         # Add the transcript to the list
-        transcripts.append(transcript)
+        transcripts.append(transcript if "Error" not in transcript else "")
     
     # Add the new "transcript" column to the DataFrame
     df['transcript'] = transcripts
