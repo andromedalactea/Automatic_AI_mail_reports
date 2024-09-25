@@ -8,13 +8,16 @@ import requests
 from openai import OpenAI
 from dotenv import load_dotenv
 
+from auxiliar_fucntions import  absolute_path
 # Load environment variables from .env file
 load_dotenv(override=True)
 
 ## Define some functions
 def calificate_call(call_transcript: str):
+
+    promp_calificate_AI_path = absolute_path('../prompts/calificate_call_v2.prompt')
     # System promt to the AI
-    with open('/home/clickgreen/freelancers/Automatic_AI_mail_reports/prompts/calificate_call_v2.prompt', 'r') as file:
+    with open(promp_calificate_AI_path, 'r') as file:
         promt_calificate_AI = file.read()  # read all content
 
     # Create the client for OpenAI
