@@ -1,4 +1,7 @@
 import os
+import re
+import json
+import ast
 import time
 from datetime import datetime
 import pytz
@@ -51,10 +54,53 @@ def schedule_report(report_function, start_hour: int=18, start_minute: int=0, en
         else:
             # If not within the interval, sleep for a while before checking again
             print("Not in the time interval. Checking again in 30 minutes.")
+            print("Current time is:", now)
             time.sleep(15 * 60)
 
 def absolute_path(relative_path):
     return os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), relative_path))     
+
+def transcripts_to_md(transcript: str) -> str:
+    """
+    Converts a transcript string into a Markdown-formatted string with an HTML wrapper for better rendering in PDF.
+    
+    Parameters:
+    transcript (str): A string representation of a list of transcripts.
+    
+    Returns:
+    str: A Markdown-formatted string wrapped in a div for proper rendering.
+    """
+    try:
+        # Convert the string to a Python object (list of dictionaries)
+        transcript_list = ast.literal_eval(transcript)
+    except (SyntaxError, ValueError) as e:
+        print(f"Error parsing string as Python literal: {e}")
+        return None
+    
+    # Start HTML content with div wrapper
+    md_content = "<div class='transcript-box'><pre><code>Transcript\n"
+    
+    for item in transcript_list:
+        # Ensure each item is a dictionary with 'role' and 'content'
+        if isinstance(item, dict) and 'role' in item and 'content' in item:
+            role = item['role']
+            content = item['content'].strip()
+            
+            # Set role text based on role type
+            if role == 'user':
+                md_content += f"\n\nDIALER: {content}"
+            elif role == 'assistant':
+                md_content += f"\n\nUSER: {content}"
+        else:
+            print(f"Warning: Element {item} is not a valid dictionary with 'role' and 'content' keys.")
+    
+    # Close the HTML tags
+    md_content += "\n</code></pre></div>"
+    
+    return md_content
+
+
+
 # Example usage
 if __name__ == "__main__":
     current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()

@@ -31,9 +31,9 @@ def send_email_with_attachment(sender_email, receiver_email, subject, body, atta
     email_text = message.as_string()
 
     # SMTP server configuration
-    smtp_server = "smtp.titan.email"
-    smtp_port = 465
-    sender_password = "w:Ny|p?4|X~^1[F"  # Your email password
+    smtp_server = os.getenv("SMTP_SERVER")
+    smtp_port = os.getenv("SMTP_PORT")
+    sender_password = os.getenv("SMTP_PASSWORD")
 
     # Send the email
     try:
@@ -51,10 +51,11 @@ def send_email_with_attachment(sender_email, receiver_email, subject, body, atta
 
 if __name__ == "__main__":
     # Usage example
-    sender_email = "reports@salestrainerai.com"
-    receiver_email = "bry3638@gmail.com"  # Replace with the recipient's email
+    sender_email = os.getenv("SENDER_EMAIL")  # Replace with your email
+    receiver_email = os.getenv("RECEIVER_EMAIL")  # Replace with the recipient's email
     subject = "Report"
     body = "Please find the attached report."
+    
     attachment_path = "/home/clickgreen/freelancers/Automatic_AI_mail_reports/calificate_calls.pdf"  # Replace with the path to your PDF file
 
     send_email_with_attachment(sender_email, receiver_email, subject, body, attachment_path)

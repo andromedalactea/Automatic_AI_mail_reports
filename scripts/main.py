@@ -1,12 +1,19 @@
+# Import python libraries
+import os
+
 # Local imports
 from extract_leads_report import leads_report_info
-from auxiliar_fucntions import get_ny_time_and_start_of_day, schedule_report, absolute_path
+from auxiliar_functions import get_ny_time_and_start_of_day, schedule_report, absolute_path
 from calificate_calls import calificate_calls_from_df
 from df_to_pdf_calification import df_to_pdf
 from send_emails import send_email_with_attachment
 
 # Third-party imports
 import pandas as pd
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv(override=True)
 pd.set_option('display.max_columns', None) 
 
 # Define the main function
@@ -16,8 +23,9 @@ def main_automatic_report():
         current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()
         
         ## DELETE THIS LINE IN PRODUCTION
-        current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
-        
+        # current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
+        print(f"Current time in New York: {current_time_ny}")
+        print(f"Start of the day in New York: {start_of_day_ny}")
         # Get the leads report
         leads_report = leads_report_info(start_of_day_ny, current_time_ny)
 
@@ -28,7 +36,7 @@ def main_automatic_report():
         # Calificate the calls
         else:
             print(len(leads_report))
-            leads_report = leads_report.head(2) # DELETE THIS LINE IN PRODUCTION
+            leads_report = leads_report.head(5) # DELETE THIS LINE IN PRODUCTION
             leads_report = calificate_calls_from_df(leads_report)
 
         # Convert the DataFrame to a PDF
@@ -36,10 +44,12 @@ def main_automatic_report():
         df_to_pdf(leads_report, 'calificate_calls.pdf', css_path)
 
         ## Send the email with the attachment
-        sender_email = "reports@salestrainerai.com"
-        receiver_email = "bry3638@gmail.com"
+        sender_email = os.getenv("SENDER_EMAIL")
+        receiver_email = os.getenv("RECEIVER_EMAIL")
+
+
         subject = f"Daily Leads Reports for the day {start_of_day_ny.split(' ')[0]}"
-        body = "This email conatint a attached PDF with the repots for leads today"
+        body = "This email contains an attached PDF with today's lead reports"
         attachment_path = "calificate_calls.pdf"
 
         send_email_with_attachment(sender_email, receiver_email, subject, body, attachment_path)
@@ -56,6 +66,6 @@ def main_automatic_report():
 
 # Schedule the report to run between 6:00 PM and 6:30 PM
 if __name__ == "__main__":
-    main_automatic_report()
+    # main_automatic_report()
     # Schedule the report to run between 6:00 PM and 6:30 PM
-    # schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)
+    schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)
