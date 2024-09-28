@@ -90,7 +90,7 @@ def transcripts_to_md(transcript: str) -> str:
             if role == 'user':
                 md_content += f"\n\nDIALER: {content}"
             elif role == 'assistant':
-                md_content += f"\n\nUSER: {content}"
+                md_content += f"\n\nCUSTOMER: {content}"
         else:
             print(f"Warning: Element {item} is not a valid dictionary with 'role' and 'content' keys.")
     

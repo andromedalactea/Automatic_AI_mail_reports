@@ -1,185 +1,5 @@
 call_date,phone_number_dialed,status,user,full_name,campaign_id,vendor_lead_code,source_id,list_id,gmt_offset_now,phone_code,phone_number,title,first_name,middle_initial,last_name,address1,address2,address3,city,state,province,postal_code,country_code,gender,date_of_birth,alt_phone,email,security_phrase,comments,length_in_sec,user_group,alt_dial,rank,owner,lead_id,list_name,list_description,status_name,recording_id,recording_filename,recording_location,transcript,calification
-2024-09-25 13:41:36,5032273700,SALE,9546001008,Jailisha,100,,,1600004,-7.0,1,5032273700,,KHAO SAN,,,1435 NW FLANDERS ST STE A,KHAO SAN,THAI RESTAURANT,PORTLAND,,MULTNOMAH,,,U,0000-00-00,,,,,163,954600,MAIN,0,,912668,Aventus Import 1600004,Aventus Import,Sale Made,686975,20240925-134136_5032273700,http://38.107.174.254/9820/2024-09-25/20240925-134136_5032273700-all.mp3,"[{'content': "" Hi, good afternoon. My name is Sarah and I'm reaching out from Aventus Pay. Is the business owner available?"", 'role': 'user'}, {'content': ""Who's this?"", 'role': 'assistant'}, {'content': 'Yes, this is Sarah with Aventus Pay.', 'role': 'user'}, {'content': 'Vintage Pay?', 'role': 'assistant'}, {'content': ""Aventus, A as in Apple, V as in Victor, E-N-T-U-S, Pay, P-A-Y. Okay, what's... Yeah, am I speaking with the business owner?"", 'role': 'user'}, {'content': ""Yeah, what's this about?"", 'role': 'assistant'}, {'content': ' Yes, um, I was just briefly reaching out about a new federal policy that simply states that you as a business owner are no longer required to pay those processing fees when you accept debit and credit cards as forms of payment. Um, you are currently paying fees, correct?', 'role': 'user'}, {'content': 'Yeah.', 'role': 'assistant'}, {'content': 'Okay. Um, and would you say your business process $10,000 monthly in debit and credit card sales?', 'role': 'user'}, {'content': 'How much? $10,000.', 'role': 'assistant'}, {'content': 'Oh yeah, way more than that. Okay, well I do have my manager on the line that you can call.  And they can explain in detail how 0% projects work. One moment.', 'role': 'user'}, {'content': 'Hi, sir.', 'role': 'assistant'}, {'content': 'How are you?', 'role': 'user'}, {'content': 'Hello.', 'role': 'assistant'}, {'content': 'Hi. How are you?', 'role': 'user'}, {'content': ""I'm good."", 'role': 'assistant'}, {'content': ""That's good. My name is Ashana. I'm one of the managers at Adventist Pay. So pretty much what we do here at Adventist is we eliminate the fees on your end so that you're able to receive your full proceeds. How does that happen? Yep. So we're able to do that due to that class action lawsuit with Visa MasterCard.  which rule doesn't make this owner's favor. So now that pretty much just gives you the same option as the customer, which is to either continue to take on these fees, or you pass the fee over to the consumer. And then we also offer a toggle option where you can split that fee 50-50 as well. So that is our cash discount program. We also would provide you with that equipment for free."", 'role': 'user'}, {'content': 'Can I give you my email and you could send me all the information to my email?', 'role': 'assistant'}, {'content': ' Okay, I can do that.', 'role': 'user'}, {'content': ""I'm kind of busy right now. I'll look over and read it."", 'role': 'assistant'}, {'content': ""What's the email?"", 'role': 'user'}, {'content': ""K-H-A-O S-A-N S-A-N-P-D-X at gmail.com I'll send that over to you."", 'role': 'assistant'}, {'content': ""Before I let you go, do you know who you're currently processing with?"", 'role': 'user'}, {'content': "" Uh, what's that one called? Merchant, I believe. Okay."", 'role': 'assistant'}, {'content': 'Alrighty. And then, what was your name again?', 'role': 'user'}, {'content': 'Prisa. P-R-I-X-A.', 'role': 'assistant'}, {'content': ""Okay. Alrighty. I'll send it over to you, and I'll also set up a follow-up call, okay?"", 'role': 'user'}, {'content': 'Okay.', 'role': 'assistant'}, {'content': 'Thank you. Alright. Thank you. Bye-bye.', 'role': 'user'}]","# Performance Evaluation Report
-
-## Overall Performance Score
-- **Fronter**: 22/30
-- **Closer**: 14/20
-
-## Detailed Performance Breakdown
-
-### Fronter Evaluation
-- **Engagement and Introduction**: 7/10
-  - The introduction was clear, but there was some confusion about the company name which could have been handled more smoothly.
-- **Value Proposition Communication**: 8/10
-  - The value proposition was communicated effectively, explaining the new federal policy and its benefits.
-- **Transition to Closer**: 7/10
-  - The transition was fairly smooth, but could have been more seamless with a better handoff.
-
-### Closer Evaluation
-- **Objection Handling**: 7/10
-  - The closer addressed the prospect's request for more information via email but could have done more to keep the conversation going.
-- **Closing Attempt**: 7/10
-  - The closer agreed to send an email and set up a follow-up call, but did not make a strong attempt to close the deal on the call.
-
-## Strengths and Areas for Improvement
-
-### Fronter Strengths
-1. **Clear Communication**: The fronter was clear in explaining the value proposition.
-2. **Engagement**: The fronter asked relevant questions to understand the prospect's current situation.
-3. **Professionalism**: Maintained a professional tone throughout the call.
-
-### Closer Strengths
-1. **Politeness**: The closer was polite and respectful, which helped in maintaining a positive tone.
-2. **Information Delivery**: Provided detailed information about the program and its benefits.
-3. **Follow-Up**: Agreed to send an email and set up a follow-up call, ensuring continued engagement.
-
-### Fronter Areas for Improvement
-1. **Company Name Clarification**: Ensure the company name is clearly understood to avoid confusion.
-   - **Suggestion**: Practice a more concise and clear introduction.
-2. **Transition Smoothness**: Make the transition to the closer more seamless.
-   - **Suggestion**: Use a more structured handoff script.
-3. **Engagement Depth**: Engage the prospect more deeply to build stronger rapport.
-   - **Suggestion**: Ask more open-ended questions to understand the prospect's needs better.
-
-### Closer Areas for Improvement
-1. **Objection Handling**: Address objections more proactively to keep the conversation going.
-   - **Suggestion**: Use techniques like acknowledging the objection and providing immediate value.
-2. **Closing Techniques**: Make a stronger attempt to close the deal on the call.
-   - **Suggestion**: Use closing techniques such as summarizing benefits and asking for a commitment.
-3. **Follow-Up Strategy**: Ensure the follow-up strategy is clear and agreed upon.
-   - **Suggestion**: Confirm the follow-up details and set clear expectations.
-
-## Recommendations
-1. **Fronter**:
-   - Practice a more concise and clear introduction to avoid confusion.
-   - Use a structured handoff script to make the transition to the closer smoother.
-   - Engage the prospect more deeply by asking open-ended questions.
-
-2. **Closer**:
-   - Develop stronger objection handling techniques to keep the conversation going.
-   - Use closing techniques to make a stronger attempt to close the deal on the call.
-   - Ensure the follow-up strategy is clear and agreed upon with the prospect.
-
-## Final Comments
-Both the fronter and closer demonstrated good communication skills and professionalism. However, there are areas for improvement in handling objections and making stronger closing attempts. By focusing on these areas, both agents can enhance their performance and increase their success rates in future calls. Keep up the good work and continue to refine your techniques!"
-2024-09-25 13:49:25,6465598253,SALE,9546001002,Makiya,100,,,1600005,-4.0,1,6465598253,,VALE HOSPITALITY GROUP LLC,,,3473 BROADWAY,VALE HOSPITALITY GROUP LLC,BAR (DRINKING PLACES),NEW YORK,,NEW YORK,,,U,0000-00-00,,,,,275,954600,MAIN,0,,666638,Aventus Import 1600005,Aventus Import,Sale Made,687270,20240925-134925_6465598253,http://38.107.174.254/9820/2024-09-25/20240925-134925_6465598253-all.mp3,"[{'content': ' Yes.', 'role': 'assistant'}, {'content': 'Hi. Good afternoon. This is Makayla with DeVentus Pay. Is the business owner available?', 'role': 'user'}, {'content': 'This is.', 'role': 'assistant'}, {'content': 'Great. How are you today, sir?', 'role': 'user'}, {'content': 'Good. Thanks. How are you doing?', 'role': 'assistant'}, {'content': ""I'm doing pretty well. So I am just briefly reaching out about a new federal policy that does not require you as the business owner to pay processing fees when you accept debit and credit cards. And are you currently still paying those processing fees?"", 'role': 'user'}, {'content': 'Yes.', 'role': 'assistant'}, {'content': ' Okay, and would you say that your business processes about 5,000 monthly in debit or credit card transactions?', 'role': 'user'}, {'content': 'Yeah, probably.', 'role': 'assistant'}, {'content': ""Okay, well I do have my manager on the line and they can explain exactly how our 0% processing works for you and what's your name?"", 'role': 'user'}, {'content': ""My name's Chris. I should tell you that right now we're in between switching POS systems and both of those POS systems have their own processing systems to it.  But until we move from one to the other, we're not going to be able to add a third-party processing system. OK. Hey, Chris. This is Jeff. I'm a manager here at Aventus. And so thank you for the information. And congratulations. Sounds like you're about to make a big purchase, huh? We're just switching PLS companies. So we're moving in a different direction. What point of sale system are you guys going with? Spot on.  How soon is that supposed to be completed for you guys? We're going to move over in December. OK. So you wouldn't be willing to do anything until then. What we do, and if it's OK, I'll call you back in December. And I can send you my information if something changes before that. But we have a program we take advantage of.  that's available due to a lawsuit that happened a couple of years ago. And it enables small and medium-sized businesses to pass the processing fees on to customers. And we've got it down to a science where it's just a $25, to you, the customer, it's only a $25 a month flat rate fee for unlimited processing. You set your base prices as your credit card price.  And then when the customer comes to pay, they are offered dual pricing. They can pay the base price that they saw on the menu or wherever, or they can pay the cash pricing at a discount. So instead of like a surcharge, where it's kind of a negative thing, Mr. Customer, oh sorry, you're going to have to pay more for this if you want to use a credit. It's presented as a benefit. You know, hey, here's a  side benefit, if you want to pay cash, you can save some money on this. With Spot On, that's exactly how our credit card processing will be set up with them. For right now, I actually physically can't do anything until December because even if I wanted to go with you, let's say, until December to see what kind of a relationship we can have,  and then implement it into my spot on. I can't change my merchant service with my current POS without signing a new contract agreement, and I'm not going to do that. We already tried to do that once with them, move processing companies, and they said, sure, we can do that, but you need to sign a new agreement. Would it be okay for me to send you some information, send you an email with my contact information in case anything changes?  Okay. What's your email address? So it's thevalepubnyc at gmail.com. Thevalepubnyc at gmail? Yes. Okay. Thank you very much for your time, Chris. It was nice talking to you. You too. I appreciate it. Okay. All right. Bye bye."", 'role': 'assistant'}]","# Performance Evaluation Report
-
-## Overall Performance Score
-- **Fronter**: 25/30
-- **Closer**: 15/20
-
-## Detailed Performance Breakdown
-
-### Fronter Evaluation
-- **Engagement and Introduction**: 9/10
-  - The fronter initiated the conversation effectively with a polite and professional tone. The introduction was clear, and the fronter successfully built rapport by asking about the business owner's well-being.
-- **Value Proposition Communication**: 8/10
-  - The fronter communicated the key benefits of the program clearly, explaining the new federal policy and the potential savings on processing fees. However, there could have been more emphasis on how this specifically benefits the business owner.
-- **Transition to Closer**: 8/10
-  - The transition to the closer was smooth, with the fronter introducing the manager and setting the stage for a detailed explanation. However, the fronter could have better prepared the business owner for the transition by summarizing the key points discussed.
-
-### Closer Evaluation
-- **Objection Handling**: 7/10
-  - The closer addressed the business owner's concerns about switching POS systems and the inability to change merchant services until December. However, the closer could have explored more ways to keep the prospect engaged until they are ready to switch.
-- **Closing Attempt**: 8/10
-  - The closer made a strong attempt to secure a commitment by offering to send information and follow up in December. The closer also provided a clear explanation of the program's benefits, which was well-received by the business owner.
-
-## Strengths and Areas for Improvement
-
-### Fronter Strengths
-1. **Professional and Polite Tone**: The fronter maintained a professional and friendly tone throughout the call.
-2. **Clear Communication**: The value proposition was communicated clearly and concisely.
-3. **Effective Transition**: The transition to the closer was smooth and well-executed.
-
-### Closer Strengths
-1. **Addressing Concerns**: The closer effectively addressed the business owner's concerns about switching POS systems.
-2. **Clear Explanation**: The closer provided a detailed and clear explanation of the program's benefits.
-3. **Follow-Up Commitment**: The closer secured a commitment to follow up in December, keeping the prospect engaged.
-
-### Fronter Areas for Improvement
-1. **Emphasize Benefits**: The fronter could place more emphasis on how the program specifically benefits the business owner.
-2. **Prepare for Transition**: The fronter could better prepare the business owner for the transition by summarizing key points before handing over to the closer.
-
-### Closer Areas for Improvement
-1. **Explore Engagement Options**: The closer could explore more ways to keep the prospect engaged until they are ready to switch.
-2. **Additional Objection Handling**: The closer could have addressed potential objections more proactively, such as offering interim solutions or additional benefits.
-
-## Recommendations
-1. **For Fronter**:
-   - Emphasize specific benefits tailored to the business owner's needs.
-   - Summarize key points before transitioning to the closer to ensure the business owner is fully prepared.
-
-2. **For Closer**:
-   - Explore interim engagement options to keep the prospect interested until they are ready to switch.
-   - Proactively address potential objections and offer additional benefits to strengthen the closing attempt.
-
-## Final Comments
-Overall, both the fronter and closer demonstrated strong performance in their respective roles. The call was professional, clear, and well-structured. By focusing on the areas for improvement and implementing the recommendations, both agents can enhance their effectiveness and increase their chances of securing commitments in future calls. Keep up the good work and continue to refine your approach based on the feedback provided."
-2024-09-25 14:24:29,2517250568,SALE,9546001002,Makiya,100,,,1600001,-5.0,1,2517250568,,MR EDDIE WILSON,,,1022 SHELTON BEACH RD,EDDIES AUTOMOTIVE,"AUTOMOTIVE REPAIR SHOPS, NEC",SARALAND,AL,MOBILE,36571.0,,U,0000-00-00,,146,,,138,954600,MAIN,0,,496204,Aventus Import 1600001 ,Aventus Import,Sale Made,688660,20240925-142429_2517250568,http://38.107.174.254/9820/2024-09-25/20240925-142429_2517250568-all.mp3,"[{'content': ' Hello?', 'role': 'assistant'}, {'content': ""Yes. Hi, good afternoon. This is Makayla with the Ventus Pay. I'm calling to speak with the business owner. Well, that's me. Great. How are you today? Just sat down eating my lunch. My apologies for interrupting you. Well, I'm reaching out regarding a new federal policy that does not require you as the business owner to pay processing fees when you accept debit and credit cards.  And you are currently paying those fees, correct? Nope, because I'm with a company I don't no more. Okay, and how much are you paying for that company monthly?"", 'role': 'user'}, {'content': '$25.', 'role': 'assistant'}, {'content': ""$25? Mm-hmm. Okay, well that's great. Um, does your business process about $5,000 monthly in debit or credit card transactions? Oh, gotcha. Okay, well my manager's on the line and she can tell you exactly how our zero percent... Well, the one that handles all this is my...  I'm going to let you talk to her, okay?"", 'role': 'user'}, {'content': ""Okay, no worries. Thank you. Hold on. Micaiah, I'm going to talk, okay? Okay."", 'role': 'assistant'}, {'content': 'Hello.', 'role': 'user'}, {'content': 'Hi, how are you?', 'role': 'assistant'}, {'content': 'Good.', 'role': 'user'}, {'content': ""That's good. So my name is Alexis. I'm one of the managers here at Advances King. One of my reps was just explaining to him that we offer, you know, the cash discount program.  It did inform me that you guys pay a $25 monthly fee. Do you guys pay for equipment as well?"", 'role': 'assistant'}, {'content': 'Nope.', 'role': 'user'}, {'content': ""No. Okay. Well, we do. We offer our services at $15 a month. We pretty much do the same thing that that company does, and we do provide the equipment as well, if that's something that you're interested in. We're currently doing a six-month free trial.  Actually, at this time and point, it's working for us right now, and I don't want to swap over at all. It's working. There's no complaints. I don't have any problems. I'm going to stay right where I'm at. Okay. What company are you guys with? Clearance. Clearance. Okay. Okay. I already know things are working out for you. Thank you. Yes, ma'am. Thank you."", 'role': 'assistant'}]","# Performance Evaluation Report
-
-## Overall Performance Score
-- **Fronter**: 20/30
-- **Closer**: 12/20
-
-## Detailed Performance Breakdown
-
-### Fronter Evaluation
-- **Engagement and Introduction**: 7/10
-  - The fronter initiated the conversation politely and acknowledged the business owner's situation (eating lunch). However, the engagement could have been more dynamic to capture the owner's interest better.
-- **Value Proposition Communication**: 6/10
-  - The fronter communicated the value proposition but did not effectively highlight the benefits or differentiate the offer from the current provider. The conversation felt rushed and lacked depth.
-- **Transition to Closer**: 7/10
-  - The transition was smooth, but the fronter could have better prepared the business owner for the closer by summarizing key points or addressing initial objections.
-
-### Closer Evaluation
-- **Objection Handling**: 6/10
-  - The closer acknowledged the business owner's satisfaction with the current provider but did not effectively counter the objection or provide compelling reasons to consider switching.
-- **Closing Attempt**: 6/10
-  - The closer made an attempt to present the offer but did not push for a commitment or suggest next steps. The conversation ended without a clear follow-up plan.
-
-## Strengths and Areas for Improvement
-
-### Fronter Strengths
-1. **Polite and Respectful**: The fronter was polite and acknowledged the business owner's situation.
-2. **Smooth Transition**: The transition to the closer was handled smoothly.
-3. **Clear Communication**: The fronter communicated clearly and concisely.
-
-### Closer Strengths
-1. **Professional Tone**: The closer maintained a professional and courteous tone throughout the conversation.
-2. **Clear Offer Presentation**: The closer clearly presented the offer and the benefits.
-3. **Acknowledgement of Current Satisfaction**: The closer acknowledged the business owner's satisfaction with the current provider, which is important for building rapport.
-
-### Fronter Areas for Improvement
-1. **Engagement**: The fronter could work on making the initial engagement more dynamic and interesting to capture the business owner's attention.
-   - **Suggestion**: Use open-ended questions to engage the business owner and build rapport.
-2. **Value Proposition Depth**: The value proposition was not communicated effectively.
-   - **Suggestion**: Highlight specific benefits and differentiate the offer from the current provider.
-3. **Preparation for Closer**: The business owner could have been better prepared for the closer.
-   - **Suggestion**: Summarize key points and address initial objections before transitioning.
-
-### Closer Areas for Improvement
-1. **Objection Handling**: The closer did not effectively handle the business owner's objections.
-   - **Suggestion**: Use techniques such as acknowledging the objection, providing counterpoints, and asking probing questions to understand the root of the objection.
-2. **Closing Strategy**: The closing attempt lacked a clear follow-up plan.
-   - **Suggestion**: Suggest next steps, such as a follow-up call or a trial period, to keep the conversation moving forward.
-3. **Compelling Reasons**: The closer did not provide compelling reasons to consider switching.
-   - **Suggestion**: Emphasize unique selling points and potential benefits that the business owner might not be aware of.
-
-## Recommendations
-1. **Fronter**:
-   - **Enhance Engagement**: Use open-ended questions and active listening to engage the business owner more effectively.
-   - **Improve Value Proposition Communication**: Develop a more compelling and detailed value proposition that clearly differentiates the offer from competitors.
-   - **Prepare for Transition**: Summarize key points and address initial objections before transitioning to the closer.
-
-2. **Closer**:
-   - **Strengthen Objection Handling**: Practice techniques for handling objections and provide compelling counterpoints.
-   - **Develop a Clear Closing Strategy**: Always suggest next steps or a follow-up plan to keep the conversation moving forward.
-   - **Highlight Unique Selling Points**: Emphasize the unique benefits and potential advantages of switching to your service.
-
-## Final Comments
-Both the fronter and closer demonstrated professionalism and clear communication skills. However, there is room for improvement in engagement, value proposition communication, objection handling, and closing strategies. By focusing on these areas, both agents can enhance their performance and increase the likelihood of successful outcomes in future calls. Keep up the good work and continue to refine your techniques!"
-2024-09-25 10:39:55,4076965653,SALE,9546001012,Raven,100,,,1007003,-4.0,1,4076965653,,,,,4270 ALOMA AVE,COCONUT BAY BAR GRILL,BAR (DRINKING PLACES),WINTER PARK,FL,,32792.0,,U,0000-00-00,,,,,2,954600,MAIN,0,,437697,Aventus Import 100703,Aventus Import,Sale Made,682730,20240925-103955_4076965653,http://38.107.174.254/9820/2024-09-25/20240925-103955_4076965653-all.mp3,"[{'content': ' for an automatic voice message system.', 'role': 'user'}]",This Call doesn't have enough information to provide a good calification.
-2024-09-25 15:35:06,7064840406,SALE,9546001019,Cherell,100,,,1007005,-4.0,1,7064840406,ASSI,,,,103 S JEFFERSON AVE,WILLOW TREE,GIFT SHOP,EATONTON,GA,,31024.0,,U,0000-00-00,,111,,,481,954600,MAIN,0,,353647,Aventus Import 100705,Aventus Import,Sale Made,691421,20240925-153520_7064840406,http://38.107.174.254/9820/2024-09-25/20240925-153520_7064840406-all.mp3,"[{'content': ' Hello?', 'role': 'assistant'}, {'content': 'Hi, how are you?', 'role': 'user'}, {'content': ""I'm doing good."", 'role': 'assistant'}, {'content': 'This is Mary reaching out from Aventus Pay. Is the business owner available?', 'role': 'user'}, {'content': 'From who?', 'role': 'assistant'}, {'content': 'Mary from Aventus Pay. Is the business owner available?', 'role': 'user'}, {'content': ""I'm one of the owners."", 'role': 'assistant'}, {'content': ""Okay, sir. We're just calling to let you know about a federal policy  for you to no longer pay processing fees, sir, when your business takes debit and credit cards as a form of payment?"", 'role': 'user'}, {'content': 'No longer pay what?', 'role': 'assistant'}, {'content': ""You're no longer required to pay processing fees when your business takes those debit and credit cards as a form of payment, which you're still paying, correct, sir?"", 'role': 'user'}, {'content': 'We are.', 'role': 'assistant'}, {'content': 'Okay, so would you say your business processed at least $5,000 monthly in those transactions, sir?', 'role': 'user'}, {'content': ' Uh-huh.', 'role': 'assistant'}, {'content': ""We're close to it."", 'role': 'user'}, {'content': 'Close to that.', 'role': 'assistant'}, {'content': ""Okay, so what's your name so I can better address you?"", 'role': 'user'}, {'content': 'Just call me Buddy.', 'role': 'assistant'}, {'content': 'Okay, Buddy. My manager has popped on the line. If you could further explain how our company works, okay?', 'role': 'user'}, {'content': ""Hey, Buddy. My name is Jeff. Can you hear me?  Yeah. OK. So I was listening on the call, and I understand that you currently are processing about $5,000 a month in credit card. More than that. More than that? A little bit more? How do you guys do that? Do you capture it on a machine, some kind of terminal?  do it with one of those. How do you guys currently capture those credit cards? We use a credit card reader machine or whatever you call it. Yeah, okay. And how many of those do you have? Just one? We have two. We have two different stores. Oh, you have two different stores? Okay. What exactly does your business do?  We sell ladies clothing. OK. And do you know what you currently are paying for credit card processing? I don't have that with me. Yeah. Have you seen before that you get bills for processing those credit cards? We do. Yeah.  Yeah, so if it was saved $10,000 a month, it's probably $300 to $400 a month in fees. And $15,000 would be $450 to $600 a month in fees. And if you did $20,000, it's probably about $900 a month in fees. What we do is offer a flat rate $25 a month fee.  There's no other hidden charges. Nothing else is going to surprise you. So that could save hundreds of dollars a month right there. And we send you free pre-programmed equipment. And all it takes is a pretty simple application. And if we could do that for you and eliminate those fees, would this be something that you would be interested in?"", 'role': 'assistant'}, {'content': "" What's that?"", 'role': 'user'}, {'content': ""$25 a month. Yes, sir. Yeah, it's $25 a month. It's not per machine. It's just a flat rate. And we provide you with free terminals. Or we have a system called iPod, which you can just use your phone. And it doesn't even need a download. You don't have to plug anything into the phone. You can just tap a credit card right on the phone.  And it will take the payment. And to move forward with that, all we need to do is fill out a simple application. It takes about five minutes. Do you have time to fill this out with me real quick? Put it to me in writing. I've got a consultant that helps me with all these kind of decisions. And I'd like to run it by him.  Yeah, sure. Absolutely. Was it like an accountant or something? He's a retail consultant. A retail consultant? OK. Sure. Buddy, what's your email address? I'd rather you send it to me in writing and just send me a letter. Send you something in the mail? Yes. Rather than an email? Yeah, that's correct. OK.  Okay, I can do that, which is going to take a lot longer to get to you. You don't use email very much? No. No? Okay. Okay, buddy, I can send you some information. Also, do you have internet access? You can look up our company on our website. Let me get to the right. Okay.  OK, what's that website? OK, it's called Aventus, A-V like Victor, E-N like Nancy, T-U-S like Sam, Pay, P-A-Y.com. So one word, AventusPay.com. OK. And the first thing you'll see is credit card processing with zero hidden fees, $25 flat month,  Unlimited Processing and we provide you with the free terminal that's programmed for you and put some money in your bank within the same business day. Okay, so I'll look that up and then you can mail me a proposal about it too. Okay, what address should I mail it to buddy?  Maggie Lane, that's the name of the store. What is the name of it? Maggie Lane. Maggie Lane, okay. 103 South Jefferson Avenue, Edenton, that's spelled E-A-T-O-N-T-O-N, Georgia, 31024. 31024, okay, very good.  Buddy, it was nice talking to you. I'll get some information out in the mail, and then I'll give us some time to get there, and then I'll follow up with you, like, maybe this time next week, okay? Well, I'm in and out, so I just happen to be here."", 'role': 'assistant'}, {'content': 'Yeah.', 'role': 'user'}, {'content': ""Okay, well, I'll try. If I call and miss you, I'll try later on in the day, until you tell me to go away and quit bugging you. Okay.  Alright buddy, have a good one and I'll be in touch, okay?"", 'role': 'assistant'}]","# Performance Evaluation Report
+2024-09-13 13:46:41,4806990570,SALE,9546001023,LeDana,100,,,101,-7.0,1.0,4806990570,PRIN,SHANE SAYRE,,RAVEN POOLS INC,23216 S VIA DEL ARROYO,,,QUEEN CREEK,AZ,,85142,,U,0000-00-00,,,,,485,954600.0,MAIN,0,,996286,AventusLessThan500K,AventusLessThan500K,Sale Made,583031.0,20240913-134641_4806990570,http://38.107.174.254/9820/2024-09-13/20240913-134641_4806990570-all.mp3,"[{'content': "" Hi, my name is Ladina, and I'm calling with Adventist Pay. May I speak to the business owner, please? It's her. Okay, great. So I was just reaching out about a new federal policy, and it simply states that you no longer have to pay transaction fees. You are currently paying those fees for your business, correct? No, we don't take credit cards. Is there a reason why you don't take credit cards now? Yeah, bad experiences.  Okay. Well, you know, we do offer 0% processing, and I can really assure you that you won't have any bad experience with us, because it's only $25 a month, and we don't have contracts, so you won't be in a contract or anything. It'll just be a month-to-month type of thing. My manager could explain more to you, and she did just have them call. Okay, so what if the client defeats the charge after we did the work?"", 'role': 'assistant'}, {'content': ""Hi, this is Treasure, one of the managers here at Adventist Pay. How are you, ma'am?"", 'role': 'user'}, {'content': "" I'm fine."", 'role': 'assistant'}, {'content': ""Great. So you were asking about disputes. So we take our disputes very seriously, and we do investigate. So if the client disputes the charge, you're still going to receive those funds. We do same-day processing. So you're still going to receive those funds, and we're going to gather information from you, and the bank is going to do their investigation."", 'role': 'user'}, {'content': ""Yeah, and then the client's disputed again, and then  You guys send them a message, and then they dispute it again, and you guys end up giving in to them."", 'role': 'assistant'}, {'content': ""No, we have very low chargebacks. We have very, very low chargebacks. So you don't have to worry about that with us, because we take that part of the business very, very seriously. And as the associate were stating, it's a 60-day free trial. And that's just for you to try out the services to see if it evaluates.  and for you to evaluate it and see if it works well with your company. But we have really low charge back rates here at Aventus Pay. We do not grant. We know customers like to dispute charges and try to get their money back, and that's considered as fraud. So we do not. We take it serious. We don't just give them a slap on the back and send them their funds. So if they made that purchase and we can prove it, they will not get that money back."", 'role': 'user'}, {'content': "" They're going to have... How do you prove it when it's labor done?"", 'role': 'assistant'}, {'content': ""I'm sorry?"", 'role': 'user'}, {'content': ""When we go and do a job and it's labor, how do you prove that they got the merchandise?"", 'role': 'assistant'}, {'content': ""Well, we take, you know, we have you send over stuff on our end. We do our investigation, so we may ask you for documentation and we may, you know, the bank does things like,  they go into the customer's app and look at their location. If they're sharing their location with that app, they can see where were they at this time. I mean, it's not my field, so I can't really break it down exactly how it will work. But I do know here at Eventus Pay, our chargebacks are really, really low.  So we do not rent."", 'role': 'user'}, {'content': ""We're mostly commercial, so we deal with management companies. And they don't use credit cards. So that's 95% of our business. So basically, I would be paying $25 a month and lucky if I do one transaction during that month."", 'role': 'assistant'}, {'content': ""So do you accept? So you do accept debit and credit cards at the moment, but you just don't take many of them?"", 'role': 'user'}, {'content': "" Well, no, they pay through Intuit, our accounting program. So that's the way we do it. But we don't do actual credit cards through a machine anymore."", 'role': 'assistant'}, {'content': 'Yeah, you do it through invoice, correct?', 'role': 'user'}, {'content': 'Right. But we have to do it through Intuit, the accounting program. Yeah, so we have a virtual terminal.', 'role': 'assistant'}, {'content': 'We have a virtual terminal where you will be able to send those  invoices out via email or text message as well.', 'role': 'user'}, {'content': ""But I already have that and I don't have to pay a high fee. So how much do you pay now? We had to pay, we were paying for a credit card machine and we were barely using it and paying all these fees. So we were losing money on it and then  We had a couple people dispute that we did the work. I then sent the text messages between the client and how they were happy and blah, blah, blah. And then they disputed it two times. They first sided with us, and then the customer kept disputing it, and the bank just gave up and said we would have to take them to small claims court."", 'role': 'assistant'}, {'content': ""Oh, no. Yeah, no. We don't work like that.  We're not going to give, you know, if that work was done and you can prove it, we can prove it. We're not going to just give the customers their money no matter how many times they dispute it. You know, we don't operate that way. And as far as you, you're saying that you were paying fees and you wasn't using the credit card machine, with us, there's no processing fee. It's just a $25 monthly fee. And if you went all month and you haven't had not one credit or debit card transaction,  We will waive that $25 monthly payment from you. So you don't have to worry about that. All right."", 'role': 'user'}, {'content': 'Let me talk to my husband. Let me talk to my husband and see if he wants to try it again.', 'role': 'assistant'}, {'content': 'OK. And I just have one question. So when you do accept Deben credit cards, how much would you say that you do monthly?', 'role': 'user'}, {'content': ""Hardly anything. Everything's done through track or electronic."", 'role': 'assistant'}, {'content': ""OK. OK. So you're not, yeah. OK. All right. So yeah, just go ahead and check with your husband. What is your first name? April.  April, okay April, my name is Treasure. So you can go ahead and check with your husband and when would you like for me to follow up? Is Monday morning okay or maybe later today?"", 'role': 'user'}, {'content': 'Monday morning is fine.', 'role': 'assistant'}, {'content': ""Alrighty, perfect. Okay April, you'll be looking for McCaw for me, okay?"", 'role': 'user'}, {'content': 'Thanks.', 'role': 'assistant'}, {'content': 'Okay, bye-bye.', 'role': 'user'}, {'content': 'Bye.', 'role': 'assistant'}]","# Performance Evaluation Report
 
 ## Overall Performance Score
 - **Fronter**: 22/30
@@ -188,57 +8,120 @@ Both the fronter and closer demonstrated professionalism and clear communication
 ## Detailed Performance Breakdown
 
 ### Fronter Evaluation
-- **Engagement and Introduction**: 7/10
-  - The fronter initiated the conversation politely and clearly, but there was a slight repetition when confirming the business owner’s availability.
-- **Value Proposition Communication**: 8/10
-  - The fronter communicated the key benefits of the program effectively, ensuring the prospect understood the potential savings.
+- **Engagement and Introduction**: 8/10
+  - The fronter, Ladina, initiated the conversation effectively with a clear introduction and polite request to speak to the business owner. The tone was professional and friendly.
+- **Value Proposition Communication**: 7/10
+  - Ladina communicated the key benefits of the program, such as 0% processing fees and no contracts, but could have provided more detailed information to address the prospect's concerns about past bad experiences.
 - **Transition to Closer**: 7/10
-  - The transition to the closer was smooth, but it could have been more engaging to ensure the prospect was fully prepared for the next part of the conversation.
+  - The transition to the closer was smooth, but it could have been more effective if Ladina had better prepared the prospect by addressing her concerns more thoroughly before handing over the call.
 
 ### Closer Evaluation
 - **Objection Handling**: 8/10
-  - The closer handled objections well, especially when the prospect requested information in writing and mentioned a consultant. The closer remained patient and accommodating.
+  - Treasure handled objections well, providing detailed responses about chargebacks and the company's policies. However, there was some repetition, and the responses could have been more concise.
 - **Closing Attempt**: 8/10
-  - The closer made a strong attempt to secure a commitment by offering to send information and follow up. However, the closer could have pushed a bit more to secure a more immediate next step.
+  - Treasure made a strong attempt to close by addressing the prospect's concerns and setting up a follow-up call. However, the closing could have been more assertive in securing a commitment.
 
 ## Strengths and Areas for Improvement
 
 ### Fronter Strengths
-1. **Polite and Clear Introduction**: The fronter started the call with a polite and clear introduction, setting a positive tone.
-2. **Effective Communication of Value Proposition**: The fronter clearly communicated the benefits of the program, making it easy for the prospect to understand the potential savings.
-3. **Smooth Transition**: The transition to the closer was handled smoothly, ensuring the prospect was aware of the next step.
+1. **Clear and Professional Introduction**: Ladina started the call with a clear and professional introduction, setting a positive tone.
+2. **Polite and Friendly Tone**: Maintained a polite and friendly tone throughout the conversation.
+3. **Basic Value Proposition Communication**: Communicated the basic benefits of the program effectively.
 
 ### Closer Strengths
-1. **Patient Objection Handling**: The closer demonstrated patience and understanding when handling objections, which helped maintain the prospect’s interest.
-2. **Clear Explanation of Offer**: The closer provided a clear and detailed explanation of the offer, including the flat rate and free terminals.
-3. **Willingness to Accommodate**: The closer showed a willingness to accommodate the prospect’s request for written information, which helped build trust.
+1. **Detailed Objection Handling**: Treasure provided detailed responses to the prospect's objections, showing a good understanding of the company's policies.
+2. **Persistence**: Demonstrated persistence in addressing the prospect's concerns and attempting to close the deal.
+3. **Setting Up Follow-Up**: Successfully set up a follow-up call, ensuring the conversation would continue.
 
 ### Fronter Areas for Improvement
-1. **Avoid Repetition**: The fronter should avoid repeating questions, as it can make the conversation feel less smooth.
-   - *Suggestion*: Prepare a script that includes variations of questions to avoid repetition.
-2. **Engage More During Transition**: The transition to the closer could be more engaging to ensure the prospect is fully prepared.
-   - *Suggestion*: Use a more engaging handover statement that highlights the importance of the next part of the conversation.
-3. **Clarify Initial Questions**: Ensure that initial questions are clear to avoid confusion.
-   - *Suggestion*: Practice phrasing questions in a way that is easy to understand on the first attempt.
+1. **Addressing Concerns More Thoroughly**: Ladina could improve by addressing the prospect's concerns about past bad experiences more thoroughly before transitioning the call.
+   - **Suggestion**: Provide more detailed information about how the company handles disputes and ensures a positive experience.
+2. **Providing More Detailed Information**: Could have provided more detailed information about the program's benefits and how it differs from the prospect's current solution.
+   - **Suggestion**: Prepare a more detailed script or FAQ to address common concerns and provide more comprehensive information.
+3. **Smoother Transition**: The transition to the closer could be smoother by summarizing the conversation and setting clear expectations for the next part of the call.
+   - **Suggestion**: Use a transition script that summarizes the key points discussed and introduces the closer more effectively.
 
 ### Closer Areas for Improvement
-1. **Push for Immediate Next Steps**: The closer could push a bit more to secure a more immediate next step, such as scheduling a follow-up call.
-   - *Suggestion*: Offer to schedule a specific time for a follow-up call to discuss the proposal.
-2. **Confirm Understanding**: Ensure the prospect fully understands the offer before ending the call.
-   - *Suggestion*: Ask the prospect to summarize their understanding of the offer to confirm clarity.
-3. **Follow-Up Strategy**: Develop a more structured follow-up strategy to ensure the prospect remains engaged.
-   - *Suggestion*: Set clear expectations for follow-up and provide multiple contact options.
+1. **Conciseness in Responses**: Treasure could improve by making responses more concise and to the point.
+   - **Suggestion**: Practice summarizing key points and avoiding repetition to keep the conversation focused and efficient.
+2. **More Assertive Closing**: The closing attempt could be more assertive in securing a commitment from the prospect.
+   - **Suggestion**: Use closing techniques that encourage the prospect to make a decision, such as offering limited-time incentives or emphasizing the benefits of immediate action.
+3. **Clarifying Technical Details**: There was some uncertainty in explaining technical details about chargebacks and dispute resolution.
+   - **Suggestion**: Gain a deeper understanding of the technical aspects of the service to provide clearer and more confident explanations.
 
 ## Recommendations
-1. **For the Fronter**:
-   - **Practice Variations in Script**: Develop and practice variations in the script to avoid repetition and ensure clarity.
-   - **Enhance Engagement During Transition**: Use more engaging language during the transition to the closer to keep the prospect interested.
-   - **Clarify Questions**: Work on phrasing questions clearly to avoid any initial confusion.
+1. **For Fronter (Ladina)**:
+   - **Enhance Training on Objection Handling**: Participate in additional training sessions focused on handling objections and providing detailed responses to common concerns.
+   - **Develop a Detailed Script**: Create a more detailed script or FAQ to address common questions and provide comprehensive information about the program.
+   - **Practice Smooth Transitions**: Practice transitioning calls to the closer by summarizing key points and setting clear expectations.
 
-2. **For the Closer**:
-   - **Push for Immediate Next Steps**: Be more assertive in securing immediate next steps, such as scheduling a follow-up call.
-   - **Confirm Understanding**: Ensure the prospect fully understands the offer by asking them to summarize it.
-   - **Structured Follow-Up**: Develop a structured follow-up strategy to maintain engagement with the prospect.
+2. **For Closer (Treasure)**:
+   - **Improve Conciseness**: Work on making responses more concise and to the point to keep the conversation focused.
+   - **Use Assertive Closing Techniques**: Implement more assertive closing techniques to encourage prospects to make a decision.
+   - **Deepen Technical Knowledge**: Gain a deeper understanding of the technical aspects of the service to provide clearer and more confident explanations.
 
 ## Final Comments
-Both the fronter and closer demonstrated strong skills in their respective roles. The fronter effectively communicated the value proposition and transitioned smoothly to the closer. The closer handled objections well and provided a clear explanation of the offer. With some minor adjustments and improvements, both agents can enhance their performance and increase their success rates in future calls. Keep up the good work and continue to refine your techniques!"
+Both Ladina and Treasure demonstrated strong communication skills and a good understanding of the company's value proposition. By addressing the areas for improvement and implementing the recommendations, they can enhance their performance and increase their success rates in future calls. Keep up the good work and continue to refine your techniques!"
+2024-09-11 14:20:35,5592223077,SALE,9546001018,Alexis R,100,,,101,-7.0,1.0,5592223077,OWNE,MS STAR MINI,,ALBASHAH AHMED,4206 N BLACKSTONE AVE,,,FRESNO,CA,,93726,,U,0000-00-00,,,,,546,954600.0,MAIN,0,,988629,AventusLessThan500K,AventusLessThan500K,Sale Made,559353.0,20240911-142036_5592223077,http://38.107.174.254/9820/2024-09-11/20240911-142036_5592223077-all.mp3,"[{'content': "" Good afternoon, may I ask is the business owner available? Yes, I'm in."", 'role': 'assistant'}, {'content': 'Hello, one second one more, how can I help you?', 'role': 'user'}, {'content': 'Hi, good afternoon, my name is Alexis. May I ask am I speaking with the business owner?', 'role': 'assistant'}, {'content': 'Yeah, where are you calling from?', 'role': 'user'}, {'content': ""Hey, I'm calling from Inventus Pay. I'm very briefly reaching out to you about a new federal policy that simply states you as the owner are no longer required to pay any processing fees from your business except debit or credit card.  You are currently paying fees, correct, sir?"", 'role': 'assistant'}, {'content': ""Wait, there's a new federal law passed that we're not supposed to pay processing fees for debit and credit?"", 'role': 'user'}, {'content': ""So it's a new federal policy, yes, that you're no longer required to pay those processing fees. But can I ask if Christmas came in 2000?"", 'role': 'assistant'}, {'content': ""I'm sorry, let me cut you off. When did this go into effect?"", 'role': 'user'}, {'content': ""So this went into effect in 2019, if I'm not mistaken. May I ask if Christmas came in 2000? That's not possible. That's not possible. Yeah, hello? Yeah.  I do have my manager on the line as well, sir, and they can explain how that is possible. I do have to ask, does your business currently process $10,000 monthly in debit or credit transactions? I think so, yeah."", 'role': 'assistant'}, {'content': ""We do quite a bit, it's a gas station."", 'role': 'user'}, {'content': 'Okay, yeah. So my manager is on the line and we can explain.', 'role': 'assistant'}, {'content': 'Hello?', 'role': 'user'}, {'content': 'Yeah, hi.', 'role': 'assistant'}, {'content': ""Hi, sir. This is Aliyah, one of the managers here at Adventures Pay. How are you today? I'm good.  Okay, great. So pretty much what we do here is eliminate the fees on your end so that you would start to receive your full proceeds. And how we're able to do so is because of that class action lawsuit that happened against Visa and MasterCard that ruled in the business owner's favor. So now you have the option to either continue taking on the fees or pass over the fees to your consumer.  We do have a toggle option where you can split that fee with the customer 50-50. Our services here are $25 monthly, and that's for unlimited processing. And we also integrate with 95% of POS systems. I'm sorry, did you not know of that, you know, that class action lawsuit? No, I never heard of this policy regarding the processing fees. This is new to me. I mean, I've never been told by any other company.  So you're no longer required to pay those processing fees, like I said, due to Visa and MasterCard. It actually went on the news, on CBNC News, I believe so. It happened about a few years ago. So you guys, you know, are no longer required to pay those processing fees. And a lot of business owners are still paying those processing fees when they don't have to. So that's the reason why we reach out. Are you currently accepting cards?  Do we take, I'm sorry, say it again? Do we take what? Are you currently accepting cards right now? Yeah, I do. Okay, and who's your current merchant? Uh, Heartland. Oh, no. Are you happy with the services with Heartland? I mean, so far so good. No complaints yet."", 'role': 'user'}, {'content': ""I mean, besides what you're telling me."", 'role': 'assistant'}, {'content': ""And what are you currently using when you accept the payments from Heartland? Is it like a terminal? Yeah, it's a separate terminal from my main register.  Okay, are you paying to use their terminal as far as the equipment? Like, are you paying... Yeah, yeah, for sure. There is for sure processing fees. Okay, and how much are they charging you monthly? Is it like a flat monthly rate fee? No, it's based off the quantitative transactions we do. Okay, okay. So here we actually, you know, we don't charge any other fees. Our services are completely free because we do have a 60-day free trial going on right now.  And it just gives business owners a chance to evaluate our services and see how their customers react. We actually do integrate with Heartland and we can also, you know, provide you with a brand new terminal or the same one that you're currently using. Your only obligation would be if you would like to stay with our services, a flat rate of $25 monthly after.  You know, like after the 60 days they would apply. So our services are completely free and you know, you'll receive 100% of your full proceeds per transaction. Um, you know, your own, your only obligation is that $25 and that's pretty much it. Okay. Um, just, uh, you can, uh,  Oh, another one of our perks here at our company. You'll be set up on automatic batches. So you'll receive those proceeds the same day. And the process is pretty simple, pretty quick. Like I said, I can provide you a brand new terminal, or you can continue to use the same one. And you'll do an information sheet over the phone with me, and then I'll send you over a docu-sign while I'm on the phone. Are you interested in moving forward? What's Advancespay?  Yes. OK. I just never heard of the company. Where are you guys based out of? So we are in Michigan, New York, and Florida. We're a partner with MX Connect, PCs, and Deja Vu Impacts. So we integrate with about 95% of the POS systems out there. What is your name? My name's Omar. Omar? OK. And what kind of business do you guys do, Omar? It's a gas station. OK.  So with, um, so with Harlan, are they doing like your store or are they doing the pump? No, just the store. Look at it. It's nothing to do with the pumps. Do you guys have a website? I'm sorry, let me catch you up."", 'role': 'user'}, {'content': 'Yeah, we do. You guys have a website? Uh huh.', 'role': 'assistant'}, {'content': ""Yeah, you can actually Google, you can actually Google us right now. We're called Aventus Pay. Okay. What is this? Just AventusPay.com? AventusPay.com. Okay.  You guys don't have a website? We do. It's called Aventus Pay. A as in apple, V as in Victor, E as in egg, N as in knife, T as in two, U as in umbrella, and S as in sausage. Pay. P-A-Y.  If you're looking, you know, from your phone or whatever, it should be a blue website and it says Aventus K. He says A, A, V, say it again one more time, I'm sorry. A, it's okay, A, yes, A, N, T, U, S, T, A, Y.  Did you find us, Omar? Yeah, I found you, yeah. Okay. So how much would you say... It's like blue and orange. Yeah. Yeah. How much would you say that you're processing monthly with the credit card sales? Like a rough estimate. Like, the amount of...  It doesn't have to be exact."", 'role': 'user'}, {'content': 'Okay.', 'role': 'assistant'}, {'content': ""I don't know, I mean, quantity of transactions is probably doing about four or five hundred a month. Okay. So, you know, are you interested in moving forward and, you know, setting up on an information sheet to start the DocuSign or? I get to talk it over with my business partner. I would like for you to at least send me an email so I can take a look at it.  Because we just switched to Heartland a few months ago, so it's not going to be that simple for me to be able to get away from them because then obviously they lock you into a contract. It's not that simple to get out. So you're in a contract with Heartland right now? Oh yeah, for sure. They all, any company that does the processing, they always sign you up for a minimum of a year to three years.  Okay, just starting, they guys put you guys in a contract instantly? Oh yeah, they always, yeah. There's no way around it. Wow, see that's why we offer, you know, a 60-day free trial to give owners the chance to see for themselves, you know? We actually do buyout contracts here. That's why I said I'm placing you on a 60-day free trial. Did you want to start an information sheet?  Um, just, like I said, send me an email. I have to, again, double check with my business partner. I gotta see what, you know, if he wants to, if he's interested in doing it. I think it's a good idea, but I still gotta talk to him. Okay, is there a time I can give you a call back when you think you'll be done? Yeah, tomorrow morning he'll be in and I'll be able to talk to him. Okay, definitely, Omar. I'll definitely give you a call tomorrow. And once again, my name is Aliyah. Alright, Aliyah, thanks so much.  Thank you. Have a great day."", 'role': 'user'}]","# Performance Evaluation Report
+
+## Overall Performance Score
+- **Fronter**: 22/30
+- **Closer**: 15/20
+
+## Detailed Performance Breakdown
+
+### Fronter Evaluation
+- **Engagement and Introduction**: 8/10
+  - The fronter, Alexis, initiated the conversation effectively, using a polite and professional tone. They confirmed they were speaking with the business owner and introduced themselves clearly.
+- **Value Proposition Communication**: 7/10
+  - Alexis communicated the key benefits of the program but could have been clearer and more concise. There was some confusion regarding the federal policy, which could have been avoided with a more straightforward explanation.
+- **Transition to Closer**: 7/10
+  - The transition to the closer was smooth, but there was a slight delay and some confusion before the closer took over. Ensuring a seamless handoff could improve the overall flow of the call.
+
+### Closer Evaluation
+- **Objection Handling**: 8/10
+  - Aliyah handled objections well, providing detailed explanations and addressing the business owner's concerns about the new policy and their current contract with Heartland.
+- **Closing Attempt**: 7/10
+  - Aliyah made a strong attempt to close the deal by offering a 60-day free trial and explaining the benefits. However, the business owner was not ready to commit and requested more information via email.
+
+## Strengths and Areas for Improvement
+
+### Fronter Strengths
+1. **Polite and Professional Tone**: Alexis maintained a courteous and professional demeanor throughout the call.
+2. **Clear Introduction**: The introduction was clear, and Alexis confirmed they were speaking with the business owner.
+3. **Initial Engagement**: Alexis effectively engaged the business owner by asking relevant questions about their current processing fees.
+
+### Closer Strengths
+1. **Detailed Explanations**: Aliyah provided thorough explanations about the policy and the benefits of their service.
+2. **Handling Objections**: Aliyah addressed the business owner's concerns effectively, particularly regarding the existing contract with Heartland.
+3. **Offering Solutions**: Aliyah offered practical solutions, such as the 60-day free trial and contract buyout options.
+
+### Fronter Areas for Improvement
+1. **Clarity in Communication**: Alexis should work on providing clearer and more concise explanations to avoid confusion.
+   - **Suggestion**: Practice delivering the value proposition in a straightforward manner, focusing on key points.
+2. **Smooth Transition**: Ensure a seamless handoff to the closer to maintain the flow of the conversation.
+   - **Suggestion**: Coordinate with the closer beforehand to ensure a smooth transition.
+3. **Handling Interruptions**: Alexis should be prepared to handle interruptions and steer the conversation back on track.
+   - **Suggestion**: Develop strategies to manage interruptions and keep the conversation focused.
+
+### Closer Areas for Improvement
+1. **Building Urgency**: Aliyah could work on creating a sense of urgency to encourage the business owner to make a decision.
+   - **Suggestion**: Highlight the limited-time offer and the immediate benefits of switching to their service.
+2. **Follow-Up Strategy**: Ensure a clear follow-up plan is communicated to the business owner.
+   - **Suggestion**: Confirm a specific time for the follow-up call and send the requested information promptly.
+3. **Addressing Contract Concerns**: Provide more detailed information about how the contract buyout works.
+   - **Suggestion**: Prepare a clear explanation of the contract buyout process and any associated costs.
+
+## Recommendations
+1. **For Fronter (Alexis)**:
+   - Practice delivering the value proposition clearly and concisely.
+   - Coordinate with the closer to ensure a smooth transition.
+   - Develop strategies to handle interruptions and keep the conversation on track.
+
+2. **For Closer (Aliyah)**:
+   - Create a sense of urgency to encourage quicker decision-making.
+   - Ensure a clear follow-up plan is communicated and executed.
+   - Provide detailed information about the contract buyout process.
+
+## Final Comments
+Both Alexis and Aliyah demonstrated strong skills in their respective roles. With some improvements in clarity, transition, and urgency, they can enhance their effectiveness in cold calling. Keep up the good work and continue to refine your approach based on the feedback provided."

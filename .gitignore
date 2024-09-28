@@ -1,5 +1,7 @@
 # Custom ignores
 develop-purposes/
+calificate_calls.csv
+calificate_calls.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

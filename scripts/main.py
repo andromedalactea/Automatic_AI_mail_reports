@@ -22,8 +22,9 @@ def main_automatic_report():
         # Extract the timing information
         current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()
         
-        ## DELETE THIS LINE IN PRODUCTION
-        # current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
+        ## DELETE NEXT LINE IN PRODUCTION
+        current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
+
         print(f"Current time in New York: {current_time_ny}")
         print(f"Start of the day in New York: {start_of_day_ny}")
         # Get the leads report
@@ -36,23 +37,27 @@ def main_automatic_report():
         # Calificate the calls
         else:
             print(len(leads_report))
-            leads_report = leads_report.head(5) # DELETE THIS LINE IN PRODUCTION
+            leads_report = leads_report.head(2) # DELETE THIS LINE IN PRODUCTION
             leads_report = calificate_calls_from_df(leads_report)
+
+        # Name for the pdf
+        pdf_name = os.getenv("ATTACHMENT_NAME") + ".pdf"
 
         # Convert the DataFrame to a PDF
         css_path = absolute_path('../css/style_report.css')
-        df_to_pdf(leads_report, 'calificate_calls.pdf', css_path)
+        df_to_pdf(leads_report, pdf_name, css_path)
 
         ## Send the email with the attachment
         sender_email = os.getenv("SENDER_EMAIL")
-        receiver_email = os.getenv("RECEIVER_EMAIL")
+        receiver_emails = os.getenv("RECEIVER_EMAIL")
+        receiver_email_list = receiver_emails.split(',')
 
-
+        # Email information
         subject = f"Daily Leads Reports for the day {start_of_day_ny.split(' ')[0]}"
         body = "This email contains an attached PDF with today's lead reports"
-        attachment_path = "calificate_calls.pdf"
 
-        send_email_with_attachment(sender_email, receiver_email, subject, body, attachment_path)
+        for receiver_email in receiver_email_list:
+            send_email_with_attachment(sender_email, receiver_email, subject, body, pdf_name)
 
         # Print the first 5 rows of the DataFrame
         leads_report.to_csv('calificate_calls.csv', index=False)
