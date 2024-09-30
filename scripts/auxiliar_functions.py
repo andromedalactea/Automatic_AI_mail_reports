@@ -88,7 +88,7 @@ def transcripts_to_md(transcript: str) -> str:
             
             # Set role text based on role type
             if role == 'user':
-                md_content += f"\n\nDIALER: {content}"
+                md_content += f"\n\nFRONTER/CLOSER: {content}"
             elif role == 'assistant':
                 md_content += f"\n\nCUSTOMER: {content}"
         else:

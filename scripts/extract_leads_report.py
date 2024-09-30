@@ -90,6 +90,10 @@ def leads_report_info(query_date: str, end_date: str):
 
 # Example usage
 if __name__ == "__main__":
-    df = leads_report_info()
+    current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
+    pd.set_option('display.max_columns', None) 
+
+    df = leads_report_info(start_of_day_ny, current_time_ny)
     if df is not None:
         print(df.head())  # Print the first few rows of the DataFrame
+        print(df.columns)

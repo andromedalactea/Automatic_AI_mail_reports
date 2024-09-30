@@ -23,10 +23,11 @@ def main_automatic_report():
         current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()
         
         ## DELETE NEXT LINE IN PRODUCTION
-        current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
+        # current_time_ny, start_of_day_ny = "2024-09-13 18:33", "2024-09-08 00:30"
 
         print(f"Current time in New York: {current_time_ny}")
         print(f"Start of the day in New York: {start_of_day_ny}")
+
         # Get the leads report
         leads_report = leads_report_info(start_of_day_ny, current_time_ny)
 
@@ -37,7 +38,7 @@ def main_automatic_report():
         # Calificate the calls
         else:
             print(len(leads_report))
-            leads_report = leads_report.head(2) # DELETE THIS LINE IN PRODUCTION
+            # leads_report = leads_report.head(2) # DELETE THIS LINE IN PRODUCTION
             leads_report = calificate_calls_from_df(leads_report)
 
         # Name for the pdf
@@ -54,13 +55,13 @@ def main_automatic_report():
 
         # Email information
         subject = f"Daily Leads Reports for the day {start_of_day_ny.split(' ')[0]}"
-        body = "This email contains an attached PDF with today's lead reports"
+        body = "This email contains an attached PDF with today's lead reports."
 
         for receiver_email in receiver_email_list:
             send_email_with_attachment(sender_email, receiver_email, subject, body, pdf_name)
 
-        # Print the first 5 rows of the DataFrame
-        leads_report.to_csv('calificate_calls.csv', index=False)
+        # # Print the first 5 rows of the DataFrame
+        # leads_report.to_csv('calificate_calls.csv', index=False)
 
         # Success message
         return "success"
