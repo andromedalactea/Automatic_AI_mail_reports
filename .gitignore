@@ -3,7 +3,7 @@ develop-purposes/
 calificate_calls.csv
 calificate_calls.pdf
 Daily Report (Aventus).pdf
-
+files/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
