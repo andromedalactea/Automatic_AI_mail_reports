@@ -4,3 +4,8 @@ python-dotenv
 openai
 markdown2 
 pdfkit
+pydub 
+websockets 
+soundfile 
+numpy
+WeasyPrint

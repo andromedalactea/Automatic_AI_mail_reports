@@ -5,6 +5,7 @@ from auxiliar_functions import transcripts_to_md
 import pandas as pd
 import markdown2
 import pdfkit
+from weasyprint import HTML, CSS
 
 
 def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
@@ -23,11 +24,13 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
     # Iterate through each row in the DataFrame
     for index, row in df.iterrows():
         # Transfrom transcript to markdown
-        try:
-            print(row['transcript'])
-            transcript = transcripts_to_md(row['transcript'])
-        except:
-            transcript = None
+        if row['qualification_from_audio']:
+            transcript = "<div class='transcript-box'><pre><code>Transcript:\n\n" + row['transcript'] + "\n</code></pre></div>"
+        else:
+            try:
+                transcript = transcripts_to_md(row['transcript'])
+            except:
+                transcript = None
 
         if transcript:
             # Construct the markdown content for each row
@@ -62,10 +65,8 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             company = row['last_name'] if pd.notna(row['last_name']) else "Unknown"
             line_content += f"**Company:** {company}\n\n"
 
-
-
             # Infor about the calification and transcript
-            line_content += f"\n{row['calification'].replace('# ', '## ')}\n"
+            line_content += f"\n{row['qualification'].replace('# ', '## ')}\n"
             line_content += f"\n{transcript}\n"
 
             # Add a page break after each row
@@ -87,12 +88,12 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
         with open(css_path, 'r') as css_file:
             css_content = css_file.read()
         
-        # Combine CSS and HTML
-        html_content_with_style = f"<style>{css_content}</style>{html_content}"
+        # Convert HTML content to PDF using WeasyPrint
+        html = HTML(string=html_content)
+        css = CSS(string=css_content)
 
-        # Convert HTML to PDF with css
-        pdfkit.from_string(html_content_with_style, output_pdf_path)
-
+        # Generate PDF with CSS
+        html.write_pdf(output_pdf_path, stylesheets=[css])
 # Usage example:
 # Assuming `df` is your DataFrame
 # df_to_pdf(df, 'output.pdf', 'path/to/styles.css')

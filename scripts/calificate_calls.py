@@ -1,5 +1,6 @@
 # Standar imports
 import os
+import re
 from io import BytesIO
 
 # Third-party imports
@@ -7,6 +8,8 @@ import pandas as pd
 import requests
 from openai import OpenAI
 from dotenv import load_dotenv
+import base64
+
 
 from auxiliar_functions import  absolute_path
 # Load environment variables from .env file
@@ -34,61 +37,220 @@ def calificate_call(call_transcript: str):
 
     return str(completion.choices[0].message.content)
 
+def calificate_call_from_direct_audio(audio_url: str):
+    # Fetch the audio file and convert it to a base64 encoded string
+    response = requests.get(audio_url)
+    response.raise_for_status()
+    wav_data = response.content
+    encoded_string = base64.b64encode(wav_data).decode('utf-8')
+
+    with open("/home/clickgreen/freelancers/Automatic_AI_mail_reports/prompts/calificate_call_from_direct_audio.prompt", "r") as file:
+        prompt = file.read()
+
+    # Create the client for OpenAI
+    client = OpenAI()
+
+    # response = client.chat.completions.create(
+    #     model="gpt-4o-audio-preview",
+    #     modalities=["text"],
+    #     messages=[
+    #         {
+    #             "role": "user",
+    #             "content": [
+    #                 { 
+    #                     "type": "text",
+    #                     "text": prompt
+    #                 },
+    #                 {
+    #                     "type": "input_audio",
+    #                     "input_audio": {
+    #                         "data": encoded_string,
+    #                         "format": "mp3"
+    #                     }
+    #                 }
+    #             ]
+    #         },
+    #     ],
+    #     max_tokens=7000,
+    #     temperature=0
+    # )
+    
+    # transcript_qualification = str(response.choices[0].message.content)
+    transcript_qualification = """<transcript>
+Kathy (Customer Service): Thank you for calling [Business Name], this is Kathy. How can I help you?
+Sarah (Fronter): Hi, good morning, Kathy. My name is Sarah. I was just reaching out with Aventus Pay. Is the business owner available?
+Kathy (Customer Service): You can speak with me. How can I help you?
+Sarah (Fronter): Okay, great. I was just reaching out regarding a new federal policy that no longer requires for business owners like yourself to pay those processing fees when accepting credit and debit cards as a form of payment. Are you currently paying those transaction fees when your business accepts credit and debit cards at the moment?
+Kathy (Customer Service): Well, I guess my question for you is, so what is your company doing exactly?
+Sarah (Fronter): Yes, we are a 0% processing company. We eliminate your processing fees down to a 0%. I do have my manager on the line, they did just join the call, and they can explain in detail how our 0% processing works. Just one moment.
+Adam (Closer): Hi, this is Adam Pierce. I'm one of the sales managers here at Aventus Pay. How are you?
+Kathy (Customer Service): I'm fine, how are you?
+Adam (Closer): Good, good. I'm sorry, I came on kind of late there. I didn't catch your name. Who am I speaking with?
+Kathy (Customer Service): My name's Kathy.
+Adam (Closer): Kathy, alright. Well, Kathy, so just as you heard, we do have an option here now for folks if they want to stop paying the processing fees, we have a way to get that done. Have you heard of anything called a cash discount before?
+Kathy (Customer Service): Mm-mm.
+Adam (Closer): Right. So the way it works is our equipment, which we provide for free, is going to show the full true cost now for anyone using a credit card. Where your transaction is normally $100, it's going to show $104 for folks. And if they want to use a discount by paying in cash or check, you can deduct that amount...
+Kathy (Customer Service): You know what, I am so sorry, but I have another call coming in, and I do have to take that.
+Adam (Closer): Oh, is there a time I should call you back?
+Kathy (Customer Service): You know, I don't think that's going to be something we're going to be interested in, but thank you very much. You have a good day.
+Adam (Closer): Alright, you too.
+Kathy (Customer Service): Bye.
+Adam (Closer): Bye.
+<transcript>
+
+<qualification>
+# Call Performance Evaluation Report
+
+## Overall Performance Score
+- **Fronter (Sarah)**: 20/30
+- **Closer (Adam)**: 10/20
+- **Conversation Difficulty Modifier**: +1 for both agents
+
+## Detailed Performance Breakdown
+
+### Fronter Evaluation (Sarah)
+- **Engagement and Introduction**: 7/10
+  - Sarah initiated the conversation with a polite and clear introduction, effectively identifying herself and the purpose of the call.
+- **Value Proposition Communication**: 6/10
+  - She communicated the value proposition of eliminating processing fees but could have provided more detailed information to engage Kathy further.
+- **Transition to Closer**: 7/10
+  - The transition to Adam was smooth, but it could have been more engaging to ensure Kathy was prepared for the detailed explanation.
+
+### Closer Evaluation (Adam)
+- **Objection Handling**: 5/10
+  - Adam attempted to explain the cash discount concept but did not effectively address Kathy's implicit objection or disinterest.
+- **Closing Attempt**: 5/10
+  - He asked about a callback time but did not attempt to secure a commitment or explore further interest before the call ended.
+
+## Conversation Difficulty
+- **Difficulty Level**: 2/5
+  - Kathy was polite but seemed disinterested and was quick to end the call. The agents faced a challenge in maintaining her interest and engagement.
+
+## Strengths and Areas for Improvement
+
+### Fronter Strengths
+1. **Clear Introduction**: Sarah introduced herself and the company clearly.
+2. **Polite Engagement**: Maintained a polite and professional tone throughout.
+3. **Smooth Transition**: Transitioned to the closer without any awkward pauses.
+
+### Closer Strengths
+1. **Polite and Professional**: Maintained a professional demeanor.
+2. **Attempted to Re-engage**: Tried to re-engage Kathy by asking for a callback time.
+
+### Fronter Areas for Improvement
+1. **Value Proposition Depth**: Provide more detailed information to capture interest.
+2. **Engagement Techniques**: Use questions to engage the prospect more actively.
+3. **Transition Preparation**: Ensure the prospect is ready and interested before transitioning.
+
+### Closer Areas for Improvement
+1. **Objection Handling**: Develop strategies to address disinterest or objections more effectively.
+2. **Closing Techniques**: Work on securing a commitment or next steps even if the prospect seems disinterested.
+3. **Adaptability**: Adapt the pitch based on the prospect's responses to maintain engagement.
+
+## Recommendations
+1. **Training on Engagement**: Both agents could benefit from training on techniques to maintain and increase prospect engagement.
+2. **Objection Handling Workshops**: Conduct workshops to improve handling objections and disinterest.
+3. **Role-Playing Sessions**: Practice role-playing to simulate difficult conversations and improve adaptability.
+4. **Feedback Sessions**: Regular feedback sessions to discuss call recordings and identify areas for improvement.
+
+## Final Comments
+Both Sarah and Adam demonstrated professionalism and politeness during the call. While the conversation was challenging due to Kathy's disinterest, there are opportunities to enhance engagement and objection handling skills. By focusing on these areas, both agents can improve their effectiveness in future calls. Keep up the good work and continue to refine your techniques!
+<qualification>"""
+    print(transcript_qualification)
+    # Definir los patrones de las etiquetas con expresiones regulares
+    transcript_pattern = r"<transcript>\s*(.*?)\s*<transcript>"
+    qualification_pattern = r"<qualification>\s*(.*?)\s*<qualification>"
+
+    # Buscar la transcripción
+    transcript_match = re.search(transcript_pattern, transcript_qualification, re.DOTALL)
+    transcript = transcript_match.group(1) if transcript_match else None
+
+    # Buscar la calificación
+    qualification_match = re.search(qualification_pattern, transcript_qualification, re.DOTALL)
+    qualification = qualification_match.group(1) if qualification_match else None
+
+    return transcript, qualification
+
 def calificate_calls_from_df(df: pd.DataFrame) -> pd.DataFrame:
     """
-    This function takes a DataFrame with the leads report and adds a new two columns with the transcript of the calls,
-    and the calification of the calls.
+    This function takes a DataFrame with the leads report and adds two new columns: one with the transcript of the calls,
+    and the other with the qualification of the call.
 
     Parameters:
     df (pd.DataFrame): The DataFrame with the leads report.
 
     Returns:
-    pd.DataFrame: The DataFrame with the new columns.
+    pd.DataFrame: The DataFrame with the transcript and qualification columns.
     """
-    # Create an empty list to store the transcripts
+    
+    # Lists to store the results
     transcripts = []
+    qualifications = []
+    qualification_from_audio = []
 
     for index, row in df.iterrows():
         recording_url = row['recording_location']
-        
+        transcript, qualification = None, None
+
+        # Step 1: Try the primary path (process call audio directly via OpenAI)
         try:
-            # Step 1: Download the audio file (but don't save it to disk)
-            response = requests.get(recording_url)
-            if response.status_code == 200:
-                audio_data = BytesIO(response.content)  # Store audio data in memory
-                
-                # Step 2: Send the audio data to the endpoint as a file
+            transcript, qualification = calificate_call_from_direct_audio(recording_url)
+            # transcript, qualification = None, None
+        except Exception as e:
+            print(f"Exception during OpenAI evaluation for URL {recording_url}: {str(e)}")
+            transcript = None
+            qualification = None
+
+        # Step 2: If transcript or qualification failed, try alternative flow
+        if not transcript or not qualification:
+            try:
+                # Try processing the audio manually via the diarization service server
+                response = requests.get(recording_url)
+                response.raise_for_status()  # Raises exception if status_code is not 200
+
+                audio_data = BytesIO(response.content)  # Keep audio in-memory
                 DOMAIN_DIARIZATION_SERVER = os.getenv("DOMAIN_DIARIZATION_SERVER")
                 files = {'audio_file': ('audio.mp3', audio_data, 'audio/mpeg')}
-                process_audio_response = requests.post(f"{DOMAIN_DIARIZATION_SERVER}/process-audio", files=files)
+                
+                # Call to the diarization service endpoint
+                process_audio_response = requests.post(
+                    f"{DOMAIN_DIARIZATION_SERVER}/process-audio", files=files)
 
-                # Step 3: Check if the request was successful and extract the "messages" key from the JSON response
+                # Check for success status; process the result if successful
                 if process_audio_response.status_code == 200:
                     response_json = process_audio_response.json()
-                    transcript = str(response_json.get("messages"))  # Convert the list to a string
+                    transcript = str(response_json.get("messages"))  # Extracting `messages` from response
                 else:
                     transcript = "Error: Failed to process audio"
-            else:
-                transcript = "Error: Failed to download audio"
-        
-        except Exception as e:
-            transcript = f"Error: {str(e)}"
-        
-        # transcript = """[{'content': " Hi, my name is Ladina, and I'm calling with Adventist Pay. May I speak to the business owner, please? It's her. Okay, great. So I was just reaching out about a new federal policy, and it simply states that you no longer have to pay transaction fees. You are currently paying those fees for your business, correct? No, we don't take credit cards. Is there a reason why you don't take credit cards now? Yeah, bad experiences.  Okay. Well, you know, we do offer 0% processing, and I can really assure you that you won't have any bad experience with us, because it's only $25 a month, and we don't have contracts, so you won't be in a contract or anything. It'll just be a month-to-month type of thing. My manager could explain more to you, and she did just have them call. Okay, so what if the client defeats the charge after we did the work?", 'role': 'assistant'}, {'content': "Hi, this is Treasure, one of the managers here at Adventist Pay. How are you, ma'am?", 'role': 'user'}, {'content': " I'm fine.", 'role': 'assistant'}, {'content': "Great. So you were asking about disputes. So we take our disputes very seriously, and we do investigate. So if the client disputes the charge, you're still going to receive those funds. We do same-day processing. So you're still going to receive those funds, and we're going to gather information from you, and the bank is going to do their investigation.", 'role': 'user'}, {'content': "Yeah, and then the client's disputed again, and then  You guys send them a message, and then they dispute it again, and you guys end up giving in to them.", 'role': 'assistant'}, {'content': "No, we have very low chargebacks. We have very, very low chargebacks. So you don't have to worry about that with us, because we take that part of the business very, very seriously. And as the associate were stating, it's a 60-day free trial. And that's just for you to try out the services to see if it evaluates.  and for you to evaluate it and see if it works well with your company. But we have really low charge back rates here at Aventus Pay. We do not grant. We know customers like to dispute charges and try to get their money back, and that's considered as fraud. So we do not. We take it serious. We don't just give them a slap on the back and send them their funds. So if they made that purchase and we can prove it, they will not get that money back.", 'role': 'user'}, {'content': " They're going to have... How do you prove it when it's labor done?", 'role': 'assistant'}, {'content': "I'm sorry?", 'role': 'user'}, {'content': "When we go and do a job and it's labor, how do you prove that they got the merchandise?", 'role': 'assistant'}, {'content': "Well, we take, you know, we have you send over stuff on our end. We do our investigation, so we may ask you for documentation and we may, you know, the bank does things like,  they go into the customer's app and look at their location. If they're sharing their location with that app, they can see where were they at this time. I mean, it's not my field, so I can't really break it down exactly how it will work. But I do know here at Eventus Pay, our chargebacks are really, really low.  So we do not rent.", 'role': 'user'}, {'content': "We're mostly commercial, so we deal with management companies. And they don't use credit cards. So that's 95% of our business. So basically, I would be paying $25 a month and lucky if I do one transaction during that month.", 'role': 'assistant'}, {'content': "So do you accept? So you do accept debit and credit cards at the moment, but you just don't take many of them?", 'role': 'user'}, {'content': " Well, no, they pay through Intuit, our accounting program. So that's the way we do it. But we don't do actual credit cards through a machine anymore.", 'role': 'assistant'}, {'content': 'Yeah, you do it through invoice, correct?', 'role': 'user'}, {'content': 'Right. But we have to do it through Intuit, the accounting program. Yeah, so we have a virtual terminal.', 'role': 'assistant'}, {'content': 'We have a virtual terminal where you will be able to send those  invoices out via email or text message as well.', 'role': 'user'}, {'content': "But I already have that and I don't have to pay a high fee. So how much do you pay now? We had to pay, we were paying for a credit card machine and we were barely using it and paying all these fees. So we were losing money on it and then  We had a couple people dispute that we did the work. I then sent the text messages between the client and how they were happy and blah, blah, blah. And then they disputed it two times. They first sided with us, and then the customer kept disputing it, and the bank just gave up and said we would have to take them to small claims court.", 'role': 'assistant'}, {'content': "Oh, no. Yeah, no. We don't work like that.  We're not going to give, you know, if that work was done and you can prove it, we can prove it. We're not going to just give the customers their money no matter how many times they dispute it. You know, we don't operate that way. And as far as you, you're saying that you were paying fees and you wasn't using the credit card machine, with us, there's no processing fee. It's just a $25 monthly fee. And if you went all month and you haven't had not one credit or debit card transaction,  We will waive that $25 monthly payment from you. So you don't have to worry about that. All right.", 'role': 'user'}, {'content': 'Let me talk to my husband. Let me talk to my husband and see if he wants to try it again.', 'role': 'assistant'}, {'content': 'OK. And I just have one question. So when you do accept Deben credit cards, how much would you say that you do monthly?', 'role': 'user'}, {'content': "Hardly anything. Everything's done through track or electronic.", 'role': 'assistant'}, {'content': "OK. OK. So you're not, yeah. OK. All right. So yeah, just go ahead and check with your husband. What is your first name? April.  April, okay April, my name is Treasure. So you can go ahead and check with your husband and when would you like for me to follow up? Is Monday morning okay or maybe later today?", 'role': 'user'}, {'content': 'Monday morning is fine.', 'role': 'assistant'}, {'content': "Alrighty, perfect. Okay April, you'll be looking for McCaw for me, okay?", 'role': 'user'}, {'content': 'Thanks.', 'role': 'assistant'}, {'content': 'Okay, bye-bye.', 'role': 'user'}, {'content': 'Bye.', 'role': 'assistant'}]"""
+                    qualification = "Unavailable"
 
-        # Add the transcript to the list
-        transcripts.append(transcript if "Error" not in transcript else "")
-    
-    # Add the new "transcript" column to the DataFrame
+            except requests.exceptions.RequestException as req_err:
+                # Catch network-related errors
+                print(f"Error fetching audio from URL {recording_url}: {req_err}")
+                transcript = "Error: Failed to download/process audio"
+                qualification = "Unavailable"
+            except Exception as err:
+                # Catch all other errors
+                print(f"Unexpected error processing audio: {err}")
+                transcript = "Error: " + str(err)
+                qualification = "Unavailable"
+
+        # Append results to lists
+
+        qualification_from_audio.append(True if qualification else False)
+        transcripts.append(transcript.replace('\n', '\n\n') if transcript else "Transcript not available")
+        qualifications.append(qualification.replace('\n', '\n\n') if qualification else calificate_call(transcript))
+        print(qualifications)
+    # Add the new columns for transcript and qualification
     df['transcript'] = transcripts
-    
-
-    # Calificate the calls regarding of transcript
-    califications = []
-    for index, row in df.iterrows():
-        califications.append(calificate_call(row['transcript']))
-
-    # Add the new "calification" column to the DataFrame
-    df['calification'] = califications
-
+    df['qualification'] = qualifications
+    df['qualification_from_audio'] = qualification_from_audio
+    print(df)
     return df
+
+# Example usage
+if __name__ == "__main__":
+    url = "http://38.107.174.254/9820/2024-10-14/20241014-114434_5166296266-all.mp3"
+    transcript, qualification = calificate_call_from_direct_audio(url)
+    print("-"*50,transcript, "-"*50)
+    print("-"*50,qualification, "-"*50)
