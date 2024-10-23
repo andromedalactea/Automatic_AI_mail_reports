@@ -43,9 +43,9 @@ def calificate_call_from_direct_audio(audio_url: str, context_call: str) -> tupl
     response.raise_for_status()
     wav_data = response.content
     encoded_string = base64.b64encode(wav_data).decode('utf-8')
-
-    with open("/home/clickgreen/freelancers/Automatic_AI_mail_reports/prompts/calificate_call_from_direct_audio_v2.prompt", "r") as file:
-        prompt = file.read()
+    promp_calificate_AI_path = absolute_path('../prompts/calificate_call_from_direct_audio_v2.prompt')
+    with open(promp_calificate_AI_path, 'r') as file:
+        promt_calificate_AI = file.read()  # read all content
 
     # Create the client for OpenAI
     client = OpenAI()
