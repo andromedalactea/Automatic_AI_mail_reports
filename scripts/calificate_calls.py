@@ -59,7 +59,7 @@ def calificate_call_from_direct_audio(audio_url: str, context_call: str) -> tupl
                 "content": [
                     { 
                         "type": "text",
-                        "text": prompt
+                        "text": promt_calificate_AI
                     },
                     {
                         "type": "input_audio",
