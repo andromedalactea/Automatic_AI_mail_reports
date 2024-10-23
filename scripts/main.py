@@ -76,6 +76,6 @@ def main_automatic_report():
 
 # Schedule the report to run between 6:00 PM and 6:30 PM
 if __name__ == "__main__":
-    main_automatic_report()
+    # main_automatic_report()
     # Schedule the report to run between 6:00 PM and 6:30 PM
-    # schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)
+    schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)
