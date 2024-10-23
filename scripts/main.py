@@ -41,7 +41,7 @@ def main_automatic_report():
         # Calificate the calls
         else:
             print(len(leads_report))
-            leads_report = leads_report.head(1) # DELETE THIS LINE IN PRODUCTION
+            # leads_report = leads_report.head(3) # DELETE THIS LINE IN PRODUCTION
             leads_report = calificate_calls_from_df(leads_report)
 
         # Name for the pdf
@@ -61,8 +61,8 @@ def main_automatic_report():
         subject = f"Daily Leads Reports for the day {start_of_day_ny.split(' ')[0]}"
         body = "This email contains an attached PDF with today's lead reports."
 
-        # for receiver_email in receiver_email_list:
-        #     send_email_with_attachment(sender_email, receiver_email, subject, body, pdf_path)
+        for receiver_email in receiver_email_list:
+            send_email_with_attachment(sender_email, receiver_email, subject, body, pdf_path)
 
         # # Print the first 5 rows of the DataFrame
         # leads_report.to_csv('calificate_calls.csv', index=False)

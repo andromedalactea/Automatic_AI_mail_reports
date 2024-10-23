@@ -1,0 +1,56 @@
+You are tasked with performing an enhanced call performance evaluation based on a provided audio file of a cold call. The main objective is to assess both a *fronter* and a *closer*, examining their strengths, weaknesses, and areas for improvement. Use advanced audio data (tone, pauses, interruptions, sentiment shifts, etc.) to generate a detailed, accurate, and actionable report. Ensure a comprehensive, high-quality analysis.
+
+### Structure of Call Analysis:
+
+1. **Manager's Overview**: A managerial section that combines the core insights and a high-level summary, including performance metrics and a breakdown of the call's key details like duration, date, and contact information.
+   
+2. **Advanced Performance Metrics**: Analytical metrics regarding both the *fronter* and *closer*. Categories will include:
+   - Engagement rate
+   - Average response time
+   - Objection Handling (only for the closer)
+   - Confidence Level
+   - Sentiment Analysis
+   - Emotional Tone Consistency
+   - Closing Techniques (only for the closer)
+   - Customer Sentiment score
+   - Conversation Difficulty
+   
+3. **Detailed Advanced Audio Analysis**:
+   - **Emotional Tone Analysis**: Evaluate both agents for warmth, adaptability, empathy, and confidence using tone shifts throughout the call.
+   - **Speech Rate and Pauses**: Note each agent's speech dynamics and their effectiveness in communication. Ensure pauses are mentioned to demonstrate attention and natural dialogue flow.
+   - **Voice Stress Analysis**: Quantify customer stress levels during different parts of the conversation, and note stress indicators in either agent when present.
+   - **Timing of Sentiment Changes (Over Time Graph)**: Provide timestamps when sentiment on the call shifts from neutral to negative or positive. Reflect on how each agent contributed to these shifts.
+   - **Emotionally Loaded Keywords**: Capture key terms that demonstrate emotional stance (e.g., "concern," "frustrated") for both agents or the prospect.
+   - **Interruptions and Overlap Detection**: Highlight any interruptions or overlapping dialogue, noting if it impacted the flow or sentiment.
+   - **Tonal Mirroring**: Detect and assess if the agents successfully tone-match and mirror energy levels of the customer.
+
+4. **Final Recommendations**: Provide actionable, specific suggestions aimed at improving objection handling, emotional tone, engagement techniques, and storytelling skills.
+
+### Call Evaluation Report Instructions:
+1. Begin with an introductory section titled "*Part 1: Manager's Overview*" using the following subheadings:
+     - **Executive Summary**: Recap the purpose of the call, its length, and the prospect's ID or name, identifying the *fronter* and *closer*.
+     - **Call Details**: Date, time, duration, and lead information such as name, location, or company.
+     - **Overall Performance Metrics**: Provide an overview of scores for conversation difficulty, lead quality, and deal closure probability as a percentage.
+   
+2. Create a table of metrics comparing the *fronter* and *closer* under the section titled "Key Metrics Overview". Use a graphical, emoji-based or text-based representation of progress bars or scoring (e.g., [███████░░░] for visual score depiction).
+
+3. Provide an **Advanced Audio Analysis** section that breaks down:
+    - Emotional tone
+    - Speech rate and pauses
+    - Stress levels
+    - Sentiment changes over the course of the call
+    - Key emotional terms
+    - Tone mirroring
+    - Confidence scoring
+    - Background noise assessment
+
+4. Conclude with actionable **Managerial Recommendations**, separately addressing the *fronter* and *closer*. Give specific guidance such as refining handling techniques, using success stories, employing emotional intelligence, and focusing on storytelling.
+
+5. Include **Personalized Agent Feedback** in the form of email-style messages for both the *fronter* and *closer*. Each message should highlight their performance on advanced audio metrics, opportunities for improvement, and actionable next steps.
+
+### Output Requirements:
+1. Use this markdown format at the start:
+   ```html
+   <transcript>
+   "transcribed call's text"
+   <transcript>

@@ -37,46 +37,50 @@ def calificate_call(call_transcript: str):
 
     return str(completion.choices[0].message.content)
 
-def calificate_call_from_direct_audio(audio_url: str):
+def calificate_call_from_direct_audio(audio_url: str, context_call: str) -> tuple:
     # Fetch the audio file and convert it to a base64 encoded string
     response = requests.get(audio_url)
     response.raise_for_status()
     wav_data = response.content
     encoded_string = base64.b64encode(wav_data).decode('utf-8')
 
-    with open("/home/clickgreen/freelancers/Automatic_AI_mail_reports/prompts/calificate_call_from_direct_audio.prompt", "r") as file:
+    with open("/home/clickgreen/freelancers/Automatic_AI_mail_reports/prompts/calificate_call_from_direct_audio_v2.prompt", "r") as file:
         prompt = file.read()
 
     # Create the client for OpenAI
     client = OpenAI()
 
-    # response = client.chat.completions.create(
-    #     model="gpt-4o-audio-preview",
-    #     modalities=["text"],
-    #     messages=[
-    #         {
-    #             "role": "user",
-    #             "content": [
-    #                 { 
-    #                     "type": "text",
-    #                     "text": prompt
-    #                 },
-    #                 {
-    #                     "type": "input_audio",
-    #                     "input_audio": {
-    #                         "data": encoded_string,
-    #                         "format": "mp3"
-    #                     }
-    #                 }
-    #             ]
-    #         },
-    #     ],
-    #     max_tokens=7000,
-    #     temperature=0
-    # )
+    response = client.chat.completions.create(
+        model="gpt-4o-audio-preview",
+        modalities=["text"],
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    { 
+                        "type": "text",
+                        "text": prompt
+                    },
+                    {
+                        "type": "input_audio",
+                        "input_audio": {
+                            "data": encoded_string,
+                            "format": "mp3"
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": context_call
+                    }
+                ]
+            },
+        ],
+        max_tokens=7000,
+        temperature=0
+    )
     
-    # transcript_qualification = str(response.choices[0].message.content)
-    transcript_qualification = """<transcript>
+    transcript_qualification = str(response.choices[0].message.content)
+    transcript_qualification_1 = """<transcript>
 Kathy (Customer Service): Thank you for calling [Business Name], this is Kathy. How can I help you?
 Sarah (Fronter): Hi, good morning, Kathy. My name is Sarah. I was just reaching out with Aventus Pay. Is the business owner available?
 Kathy (Customer Service): You can speak with me. How can I help you?
@@ -194,7 +198,18 @@ def calificate_calls_from_df(df: pd.DataFrame) -> pd.DataFrame:
 
         # Step 1: Try the primary path (process call audio directly via OpenAI)
         try:
-            transcript, qualification = calificate_call_from_direct_audio(recording_url)
+            # Extrcat infor from df to provide context for the qualification:
+            first_name = row['first_name'] if pd.notna(row['first_name']) else "Unknown"
+            lead_id = row['lead_id'] if pd.notna(row['lead_id']) else "Unknown"
+
+            context_call = f"""This is some context for the call (For executive summary but is possible to use for other parts of the report as well):
+            Date of the call: {row['call_date'] if pd.notna(row['call_date']) else 'Unavailable'}
+            Duration of the call: {row['length_in_sec'] if pd.notna(row['length_in_sec']) else 'Unavailable'} seconds
+            Lead Name/ID: {first_name} ({lead_id})\n\n"
+            Company Name: {row['last_name'] if pd.notna(row['last_name']) else 'Unknown'}
+            """
+
+            transcript, qualification = calificate_call_from_direct_audio(recording_url, context_call)
             # transcript, qualification = None, None
         except Exception as e:
             print(f"Exception during OpenAI evaluation for URL {recording_url}: {str(e)}")

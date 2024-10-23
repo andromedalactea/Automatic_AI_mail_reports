@@ -66,7 +66,7 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             line_content += f"**Company:** {company}\n\n"
 
             # Infor about the calification and transcript
-            line_content += f"\n{row['qualification'].replace('# ', '## ')}\n"
+            line_content += f"\n{row['qualification'].replace('# ', '## ').replace('## ', '### ')}\n"
             line_content += f"\n{transcript}\n"
 
             # Add a page break after each row
