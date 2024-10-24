@@ -50,37 +50,37 @@ def calificate_call_from_direct_audio(audio_url: str, context_call: str) -> tupl
     # Create the client for OpenAI
     client = OpenAI()
 
-    # response = client.chat.completions.create(
-    #     model="gpt-4o-audio-preview",
-    #     modalities=["text"],
-    #     messages=[
-    #         {
-    #             "role": "user",
-    #             "content": [
-    #                 { 
-    #                     "type": "text",
-    #                     "text": promt_calificate_AI
-    #                 },
-    #                 {
-    #                     "type": "input_audio",
-    #                     "input_audio": {
-    #                         "data": encoded_string,
-    #                         "format": "mp3"
-    #                     }
-    #                 },
-    #                 {
-    #                     "type": "text",
-    #                     "text": context_call
-    #                 }
-    #             ]
-    #         },
-    #     ],
-    #     max_tokens=8000,
-    #     temperature=0
-    # )
+    response = client.chat.completions.create(
+        model="gpt-4o-audio-preview",
+        modalities=["text"],
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    { 
+                        "type": "text",
+                        "text": promt_calificate_AI
+                    },
+                    {
+                        "type": "input_audio",
+                        "input_audio": {
+                            "data": encoded_string,
+                            "format": "mp3"
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": context_call
+                    }
+                ]
+            },
+        ],
+        max_tokens=8000,
+        temperature=0
+    )
     
-    # transcript_qualification = str(response.choices[0].message.content)
-    transcript_qualification = """<transcript>
+    transcript_qualification = str(response.choices[0].message.content)
+    transcript_qualification_ = """<transcript>
 Kathy (Customer Service): Thank you for calling [Business Name], this is Kathy. How can I help you?
 Sarah (Fronter): Hi, good morning, Kathy. My name is Sarah. I was just reaching out with Aventus Pay. Is the business owner available?
 Kathy (Customer Service): You can speak with me. How can I help you?
