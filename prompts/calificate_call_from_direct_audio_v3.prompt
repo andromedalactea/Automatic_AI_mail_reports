@@ -1,113 +1,166 @@
-# Standar imports
-import os
-import re
-from io import BytesIO
+*Objective*:  
+You are tasked with evaluating the performance of a cold calling team consisting of a fronter and a closer based on the call audio provided. Your job is to transcribe the call, accurately separate the roles of each agent, and distinguish between the customer and agents involved. You will then assess the performance of each agent separately based on numerous detailed parameters, factoring in advanced audio detection capabilities such as tone, pace, energy, interruptions, and overall audio quality. After reviewing the call, you will provide a comprehensive report including numerical scores, qualitative feedback, and actionable recommendations, following a specified output format.
 
-# Third-party imports
-import pandas as pd
-import requests
-from openai import OpenAI
-from dotenv import load_dotenv
-import base64
+#### Instructions:
 
+*Transcription*:
+   - Transcribe the provided call audio with accurate diarization, identifying the fronter, closer, and customer. Use their names if available, or their roles. Ensure proper speaker labels such as *John (Customer):* or *Anna (Fronter):*. 
+   - The transcription must be enclosed within `<transcript>\n"Transcript"\n<transcript>` tags.
 
-from auxiliar_functions import  absolute_path
-# Load environment variables from .env file
-load_dotenv(override=True)
+1. **Manager's Report**:
 
-## Define some functions
-def calificate_call(call_transcript: str):
+   - Begin the Manager’s Report with an **Executive Summary**. This should include the date of the call, duration, and any lead or customer ID known. Briefly summarize the call's main highlights, including the challenge level and main areas of concern for each agent.
+   
+   - Include a **Overall Performance Score**, with scores assigned to key performance aspects of both agents. Factors such as "Conversation Difficulty," "Estimated Lead Quality," and "Estimated Probability of Deal Closing" should also be assigned scores.
+   
+      Example guidelines for scoring:
+      - **Conversation Difficulty**: 1/5 for easy calls to 5/5 for very difficult calls, with consideration given to customer objections or disengagement.
+      - **Estimated Lead Quality**: Reflects how promising the customer seems based on objections raised, receptiveness, and interest.
+      - **Probability of Deal Closing**: Reflects the likelihood of closing a deal based on the customer's tone, questions, and objections.
 
-    promp_calificate_AI_path = absolute_path('../prompts/calificate_call_v2.prompt')
-    # System promt to the AI
-    with open(promp_calificate_AI_path, 'r') as file:
-        promt_calificate_AI = file.read()  # read all content
+2. **Agent Performance Summary**:
 
-    # Create the client for OpenAI
-    client = OpenAI()
+   - For each agent (fronter and closer), provide:
+     - A **Total Performance Score** (Fronter score out of 30; Closer score out of 20).
+     - Break down performance into the following areas, and score as indicated:
+       
+      **Fronter**:
+        - Engagement and Introduction: Score out of 10 for clear, polite, and effective conversation initiation.
+        - Value Proposition Communication: Score out of 10 for how well the agent communicated the key benefits of their product or service.
+        - Transition to Closer: Score out of 10 for how smoothly the call was handed over to the closer. Did the fronter prepare the customer adequately for the handover?
 
-    completion = client.chat.completions.create(
-    model="gpt-4o",
-    temperature = 0,
-    messages=[
-        {"role": "system", "content": f"{promt_calificate_AI}"},
-        {"role": "system", "content": f"{call_transcript}"},
-    ]
-    )
+      **Closer**:
+        - Objection Handling: Score out of 10 for how effectively the closer rebutted any objections raised by the customer, including their tone and problem-solving approach.
+        - Closing Attempt: Score out of 10 for how effectively the closer tried to secure agreement from the customer, this could include asking for a callback time.
 
-    return str(completion.choices[0].message.content)
+3. **Key Metrics Overview**:
 
-def calificate_call_from_direct_audio(audio_url: str, context_call: str) -> tuple:
-    # Fetch the audio file and convert it to a base64 encoded string
-    response = requests.get(audio_url)
-    response.raise_for_status()
-    wav_data = response.content
-    encoded_string = base64.b64encode(wav_data).decode('utf-8')
-    promp_calificate_AI_path = absolute_path('../prompts/calificate_call_from_direct_audio_v3.prompt')
-    with open(promp_calificate_AI_path, 'r') as file:
-        promt_calificate_AI = file.read()  # read all content
+   - Provide important metrics related to both agents’ performances. These metrics should give the manager a high-level view of key performance areas such as agent and customer engagement rates, objection frequency, and speech dynamics. **Table** should be generated for this section in HTML format reflecting metrics for the Fronter and the Closer.
 
-    # Create the client for OpenAI
-    client = OpenAI()
-
-    # response = client.chat.completions.create(
-    #     model="gpt-4o-audio-preview",
-    #     modalities=["text"],
-    #     messages=[
-    #         {
-    #             "role": "user",
-    #             "content": [
-    #                 { 
-    #                     "type": "text",
-    #                     "text": promt_calificate_AI
-    #                 },
-    #                 {
-    #                     "type": "input_audio",
-    #                     "input_audio": {
-    #                         "data": encoded_string,
-    #                         "format": "mp3"
-    #                     }
-    #                 },
-    #                 {
-    #                     "type": "text",
-    #                     "text": context_call
-    #                 }
-    #             ]
-    #         },
-    #     ],
-    #     max_tokens=8000,
-    #     temperature=0
-    # )
+     Possible metrics include:
+     - Engagement Rate (A reflection of how engaged the customer appeared over time.)
+     - Average response time (How long the agent takes to respond to customer queries.)
+     - Objection Frequency (How many objections were raised over the course of the conversation.)
+     - Emotional Tone Consistency (How steady the agent's emotional tone was during the call.)
+     - Customer Sentiment Score (Derived from speech cues based on sentiment tracking. Did the customer stay engaged? Did their tone grow more negative or positive?)
     
-    # transcript_qualification = str(response.choices[0].message.content)
-    transcript_qualification = """<transcript>
-Kathy (Customer Service): Thank you for calling [Business Name], this is Kathy. How can I help you?
-Sarah (Fronter): Hi, good morning, Kathy. My name is Sarah. I was just reaching out with Aventus Pay. Is the business owner available?
-Kathy (Customer Service): You can speak with me. How can I help you?
-Sarah (Fronter): Okay, great. I was just reaching out regarding a new federal policy that no longer requires for business owners like yourself to pay those processing fees when accepting credit and debit cards as a form of payment. Are you currently paying those transaction fees when your business accepts credit and debit cards at the moment?
-Kathy (Customer Service): Well, I guess my question for you is, so what is your company doing exactly?
-Sarah (Fronter): Yes, we are a 0% processing company. We eliminate your processing fees down to a 0%. I do have my manager on the line, they did just join the call, and they can explain in detail how our 0% processing works. Just one moment.
-Adam (Closer): Hi, this is Adam Pierce. I'm one of the sales managers here at Aventus Pay. How are you?
-Kathy (Customer Service): I'm fine, how are you?
-Adam (Closer): Good, good. I'm sorry, I came on kind of late there. I didn't catch your name. Who am I speaking with?
-Kathy (Customer Service): My name's Kathy.
-Adam (Closer): Kathy, alright. Well, Kathy, so just as you heard, we do have an option here now for folks if they want to stop paying the processing fees, we have a way to get that done. Have you heard of anything called a cash discount before?
-Kathy (Customer Service): Mm-mm.
-Adam (Closer): Right. So the way it works is our equipment, which we provide for free, is going to show the full true cost now for anyone using a credit card. Where your transaction is normally $100, it's going to show $104 for folks. And if they want to use a discount by paying in cash or check, you can deduct that amount...
-Kathy (Customer Service): You know what, I am so sorry, but I have another call coming in, and I do have to take that.
-Adam (Closer): Oh, is there a time I should call you back?
-Kathy (Customer Service): You know, I don't think that's going to be something we're going to be interested in, but thank you very much. You have a good day.
-Adam (Closer): Alright, you too.
-Kathy (Customer Service): Bye.
-Adam (Closer): Bye.
-<transcript>
+    Example output (with placeholder scores):
+    ```html
+    <table border="1" cellspacing="0" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Fronter (Nadine)</th>
+      <th>Closer (Adam)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Engagement Rate</strong></td>
+      <td>[██████████░░░] <strong>75%</strong></td>
+      <td>[███████████░░] <strong>80%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Average Response Time</strong></td>
+      <td>[███░░░░░░░░░░░] <strong>3s</strong></td>
+      <td>[██░░░░░░░░░░░░] <strong>2s</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Objection Frequency</strong></td>
+      <td>N/A</td>
+      <td>2 objections</td>
+    </tr>
+    <tr>
+      <td><strong>Emotional Tone Consistency</strong></td>
+      <td>[█████████░░░░] <strong>70%</strong></td>
+      <td>[██████████░░] <strong>80%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Customer Sentiment Score</strong></td>
+      <td>[████████░░░] <strong>60%</strong></td>
+      <td>[█████████░░░] <strong>70%</strong></td>
+    </tr>
+  </tbody>
+</table>
+    ```
 
+4. **Advanced Audio Analysis**:
+
+   - **Emotional Tone Analysis**: 
+      - Evaluate the emotional tone of each agent throughout the call, detailing whether the agent maintained a professional, reassuring, or enthusiastic attitude. Did their tone mirror or counterbalance the customer’s tone?
+   
+   - **Speech Rate and Pauses**: 
+      - Analyze how both the agents and customer managed their speech and if they used pauses to encourage discussion or reflect on the content. Specify how purposeful any pause or faster speech pattern was during difficult moments or while explaining complex matters.
+   
+   - **Voice Stress Analysis**: 
+      - Use data on stress markers within speech to report on whether either agent or the customer displayed signs of stress, such as increased pitch, rapid speaking, or hesitation.
+   
+   - **Silence and Overlap Detection**: 
+      - Report on whether any awkward silences or overlapping interruptions occurred that could indicate miscommunication or disengagement.
+   
+   - **Tone Matching and Mirroring**: 
+      - Highlight any instances where agents effectively mirrored customer tone to build rapport. Did agents resonate at key emotional moments or use a contrasting tone to shift the conversation direction?
+   
+   - **Confidence Scoring**:
+      - Assign confidence scores to each agent out of 100% based on their delivery (tone, pace, clarity).
+   
+5. **Strengths and Areas for Improvement**:
+
+   - **Fronter**:
+     - Identify 2-3 specific strengths and areas of improvement for the fronter (e.g., strong rapport-building, but weaker at transitioning smoothly to the closer).
+     
+   - **Closer**:
+     - Provide 2-3 specific strengths and areas of improvement for the closer based on how they handled objections, remained engaged or maintained composure in response to the customer.
+     
+    Example:
+    - **Fronter Strengths**:
+        - Maintained friendly engagement throughout the call.
+        - Delivered a clear and concise introduction.
+    - **Fronter Areas for Improvement**:
+        - Could provide more detail when explaining the value proposition.
+        - Ensure transition to the closer sets clearer expectations.
+    
+6. **Recommendations for Management**:
+
+   After analyzing the call, provide tailored feedback for the improvement of both agents in specific areas, such as:
+   
+    - **Training Focus Areas**:
+      - Fronter could benefit from more training in objection handling or rapport building.
+      - Closer could focus on closing techniques or handling non-verbal objections.
+
+    - **Steps to Improve**:
+      - Suggestions might include attending a "role-playing" session or creating a dedicated list of rebuttals for the objections raised during the call.
+      
+    - Provide up to four concrete and actionable recommendations that the agents can immediately apply to their next calls.  
+      
+7. **Next Steps to Close**:
+   
+   - Suggest a "Next Step" plan for the agents. This should include:
+      - Follow-up actions to potentially close the lead.
+      - Email follow-up suggestions or addressing any specific concerns the customer might have raised.
+   
+8. **Final Comments**:
+
+   - Add any final statements that reinforce feedback, positive reinforcement improvements, and general encouragement.
+
+9. **Output Format**:
+
+    - Use the markdown-like format for all bullet points and text, and wrap each section in `<qualification></qualification>` tags.
+      
+    - The outputs should be justified properly and split as structured above: 
+   
+Example output format:
+
+```
+<transcript>
+John (Customer): Hello, who is this? [ ... ] Anna (Fronter): Hi John, this is Anna ...
+<transcript>
 <qualification>
 ## **Call Performance Evaluation Report**
 
 ---
 
-### **Manager's Report**
+### **Part 1: Manager's Report**
 
 #### **Executive Summary**
 
@@ -447,113 +500,10 @@ You're both doing an **excellent** job! By incorporating these insights from the
 If you have any questions or would like to discuss these points further, feel free to reach out. Let's make the next call even better!
 
 **Enjoy your day and happy selling!** 🎉
-<qualification>"""
-    print(transcript_qualification)
-    # Definir los patrones de las etiquetas con expresiones regulares
-    transcript_pattern = r"<transcript>\s*(.*?)\s*<transcript>"
-    qualification_pattern = r"<qualification>\s*(.*?)\s*<qualification>"
+<qualification>
+```
+Important details:
 
-    # Buscar la transcripción
-    transcript_match = re.search(transcript_pattern, transcript_qualification, re.DOTALL)
-    transcript = transcript_match.group(1) if transcript_match else None
-
-    # Buscar la calificación
-    qualification_match = re.search(qualification_pattern, transcript_qualification, re.DOTALL)
-    qualification = qualification_match.group(1) if qualification_match else None
-
-    return transcript, qualification
-
-def calificate_calls_from_df(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    This function takes a DataFrame with the leads report and adds two new columns: one with the transcript of the calls,
-    and the other with the qualification of the call.
-
-    Parameters:
-    df (pd.DataFrame): The DataFrame with the leads report.
-
-    Returns:
-    pd.DataFrame: The DataFrame with the transcript and qualification columns.
-    """
-    
-    # Lists to store the results
-    transcripts = []
-    qualifications = []
-    qualification_from_audio = []
-
-    for index, row in df.iterrows():
-        recording_url = row['recording_location']
-        transcript, qualification = None, None
-
-        # Step 1: Try the primary path (process call audio directly via OpenAI)
-        try:
-            # Extrcat infor from df to provide context for the qualification:
-            first_name = row['first_name'] if pd.notna(row['first_name']) else "Unknown"
-            lead_id = row['lead_id'] if pd.notna(row['lead_id']) else "Unknown"
-
-            context_call = f"""This is some context for the call (For executive summary but is possible to use for other parts of the report as well):
-            Date of the call: {row['call_date'] if pd.notna(row['call_date']) else 'Unavailable'}
-            Duration of the call: {row['length_in_sec'] if pd.notna(row['length_in_sec']) else 'Unavailable'} seconds
-            Lead Name/ID: {first_name} ({lead_id})\n\n"
-            Company Name: {row['last_name'] if pd.notna(row['last_name']) else 'Unknown'}
-            """
-
-            transcript, qualification = calificate_call_from_direct_audio(recording_url, context_call)
-            # transcript, qualification = None, None
-        except Exception as e:
-            print(f"Exception during OpenAI evaluation for URL {recording_url}: {str(e)}")
-            transcript = None
-            qualification = None
-
-        # Step 2: If transcript or qualification failed, try alternative flow
-        if not transcript or not qualification:
-            try:
-                # Try processing the audio manually via the diarization service server
-                response = requests.get(recording_url)
-                response.raise_for_status()  # Raises exception if status_code is not 200
-
-                audio_data = BytesIO(response.content)  # Keep audio in-memory
-                DOMAIN_DIARIZATION_SERVER = os.getenv("DOMAIN_DIARIZATION_SERVER")
-                files = {'audio_file': ('audio.mp3', audio_data, 'audio/mpeg')}
-                
-                # Call to the diarization service endpoint
-                process_audio_response = requests.post(
-                    f"{DOMAIN_DIARIZATION_SERVER}/process-audio", files=files)
-
-                # Check for success status; process the result if successful
-                if process_audio_response.status_code == 200:
-                    response_json = process_audio_response.json()
-                    transcript = str(response_json.get("messages"))  # Extracting `messages` from response
-                else:
-                    transcript = "Error: Failed to process audio"
-                    qualification = "Unavailable"
-
-            except requests.exceptions.RequestException as req_err:
-                # Catch network-related errors
-                print(f"Error fetching audio from URL {recording_url}: {req_err}")
-                transcript = "Error: Failed to download/process audio"
-                qualification = "Unavailable"
-            except Exception as err:
-                # Catch all other errors
-                print(f"Unexpected error processing audio: {err}")
-                transcript = "Error: " + str(err)
-                qualification = "Unavailable"
-
-        # Append results to lists
-
-        qualification_from_audio.append(True if qualification else False)
-        transcripts.append(transcript.replace('\n', '\n\n') if transcript else "Transcript not available")
-        qualifications.append(qualification.replace('\n', '\n\n') if qualification else calificate_call(transcript))
-        print(qualifications)
-    # Add the new columns for transcript and qualification
-    df['transcript'] = transcripts
-    df['qualification'] = qualifications
-    df['qualification_from_audio'] = qualification_from_audio
-    print(df)
-    return df
-
-# Example usage
-if __name__ == "__main__":
-    url = "http://38.107.174.254/9820/2024-10-14/20241014-114434_5166296266-all.mp3"
-    transcript, qualification = calificate_call_from_direct_audio(url)
-    print("-"*50,transcript, "-"*50)
-    print("-"*50,qualification, "-"*50)
+- The AI should generate the transcriptions and qualifications ensuring high accuracy by leveraging audio data, including voice tone, speech patterns, interruptions, and other natural indicators.
+- If the audio or quality lacks sufficient detail for qualification, your response should simply state: "This call doesn't have enough information to provide a fair qualification."
+- don't worries abpout ouput tokens so provide the entire transcript and qualification

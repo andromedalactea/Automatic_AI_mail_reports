@@ -37,10 +37,10 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             line_content = f"# Evaluation for {row['full_name']} ({row['user']})\n".upper() 
 
             # Add header for call information
-            line_content += "\n## Call Information:\n\n"
+            line_content += "\n## **Call Information**:\n\n"
 
             # Call date, checking if it's available
-            line_content += f"**Date:** {row['call_date'] if pd.notna(row['call_date']) else 'Unavailable'}\n\n"
+            # line_content += f"**Date:** {row['call_date'] if pd.notna(row['call_date']) else 'Unavailable'}\n\n"
 
             # Dialed phone number, ensuring 'phone_code' is an integer and 'phone_number_dialed' is not null
             phone_code = int(row['phone_code']) if pd.notna(row['phone_code']) else "Unknown"
@@ -48,8 +48,8 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             line_content += f"**Phone number dialed:** +{phone_code} {phone_number}\n\n"
 
             # Call duration in seconds, handling possible missing values
-            duration = row['length_in_sec'] if pd.notna(row['length_in_sec']) else "Unknown"
-            line_content += f"**Duration:** {duration} seconds\n\n"
+            # duration = row['length_in_sec'] if pd.notna(row['length_in_sec']) else "Unknown"
+            # line_content += f"**Duration:** {duration} seconds\n\n"
 
             # Lead name and ID, checking availability
             first_name = row['first_name'] if pd.notna(row['first_name']) else "Unknown"
@@ -66,7 +66,7 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             line_content += f"**Company:** {company}\n\n"
 
             # Infor about the calification and transcript
-            line_content += f"\n{row['qualification'].replace('# ', '## ').replace('## ', '### ')}\n"
+            line_content += f"\n{row['qualification']}\n"
             line_content += f"\n{transcript}\n"
 
             # Add a page break after each row
@@ -80,7 +80,7 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
     if markdown_content != "":
 
         # Delete the last page break
-
+        print(markdown_content)
         # Convert Markdown content to HTML
         html_content = markdown2.markdown(markdown_content)
 
