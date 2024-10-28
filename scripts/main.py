@@ -26,7 +26,7 @@ def main_automatic_report():
         current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()
         
         ## DELETE NEXT LINE IN PRODUCTION
-        current_time_ny, start_of_day_ny = "2024-10-23 18:33", "2024-10-23 00:30"
+        # current_time_ny, start_of_day_ny = "2024-10-23 18:33", "2024-10-23 00:30"
 
         print(f"Current time in New York: {current_time_ny}")
         print(f"Start of the day in New York: {start_of_day_ny}")
@@ -78,4 +78,4 @@ def main_automatic_report():
 if __name__ == "__main__":
     main_automatic_report()
     # Schedule the report to run between 6:00 PM and 6:30 PM
-    # schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)
+    schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)

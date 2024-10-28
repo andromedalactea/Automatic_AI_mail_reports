@@ -524,19 +524,20 @@ def calificate_calls_from_df(df: pd.DataFrame) -> pd.DataFrame:
                     response_json = process_audio_response.json()
                     transcript = str(response_json.get("messages"))  # Extracting `messages` from response
                 else:
-                    transcript = "Error: Failed to process audio"
-                    qualification = "Unavailable"
+                    transcript = "Unavailable"
+                    qualification = "This call doesn't have enough information to provide a fair qualification."
 
             except requests.exceptions.RequestException as req_err:
                 # Catch network-related errors
                 print(f"Error fetching audio from URL {recording_url}: {req_err}")
-                transcript = "Error: Failed to download/process audio"
-                qualification = "Unavailable"
+                transcript = "Unavailable"
+                qualification = "This call doesn't have enough information to provide a fair qualification."
+
             except Exception as err:
                 # Catch all other errors
                 print(f"Unexpected error processing audio: {err}")
-                transcript = "Error: " + str(err)
-                qualification = "Unavailable"
+                transcript = "Unavailable"
+                qualification = "This call doesn't have enough information to provide a fair qualification."
 
         # Append results to lists
 
