@@ -32,9 +32,12 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             except:
                 transcript = None
 
-        if transcript:
+        if transcript and row['qualification_from_audio']:
             # Construct the markdown content for each row
-            line_content = f"# Evaluation for {row['full_name']} ({row['user']})\n".upper() 
+            if row['qualification_from_audio']:
+                line_content = f"# Evaluation for {row['full_name']} ({row['user']})\n".upper() 
+            else:
+                line_content = f"# Evaluation for {row['full_name']} ({row['user']}) [Only with transcribe]\n".upper() 
 
             # Add header for call information
             line_content += "\n## **Call Information**:\n\n"
