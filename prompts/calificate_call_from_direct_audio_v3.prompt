@@ -507,3 +507,13 @@ Important details:
 - The AI should generate the transcriptions and qualifications ensuring high accuracy by leveraging audio data, including voice tone, speech patterns, interruptions, and other natural indicators.
 - If the audio or quality lacks sufficient detail for qualification, your response should simply state: "This call doesn't have enough information to provide a fair qualification."
 - don't worries abpout ouput tokens so provide the entire transcript and qualification
+-  Don't provide nothing in the reponse to fill, like [Your Name], don't provide nothing like that, yout're response is the final qualification without fill nothing
+- Your response Always should have the html tags, if the trascript is not enough for the qualification so say:
+<transcript>
+John (Customer): Hello
+<transcript>
+<qualification>
+This call does not have sufficient information to determine a qualification.
+<qualification>
+
+Always, the response should include the tags, and always attempt to provide the transcript.

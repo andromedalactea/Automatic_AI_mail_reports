@@ -504,40 +504,40 @@ def calificate_calls_from_df(df: pd.DataFrame) -> pd.DataFrame:
             transcript = None
             qualification = None
 
-        # Step 2: If transcript or qualification failed, try alternative flow
-        if not transcript or not qualification:
-            try:
-                # Try processing the audio manually via the diarization service server
-                response = requests.get(recording_url)
-                response.raise_for_status()  # Raises exception if status_code is not 200
+        # # Step 2: If transcript or qualification failed, try alternative flow
+        # if not transcript or not qualification:
+        #     try:
+        #         # Try processing the audio manually via the diarization service server
+        #         response = requests.get(recording_url)
+        #         response.raise_for_status()  # Raises exception if status_code is not 200
 
-                audio_data = BytesIO(response.content)  # Keep audio in-memory
-                DOMAIN_DIARIZATION_SERVER = os.getenv("DOMAIN_DIARIZATION_SERVER")
-                files = {'audio_file': ('audio.mp3', audio_data, 'audio/mpeg')}
+        #         audio_data = BytesIO(response.content)  # Keep audio in-memory
+        #         DOMAIN_DIARIZATION_SERVER = os.getenv("DOMAIN_DIARIZATION_SERVER")
+        #         files = {'audio_file': ('audio.mp3', audio_data, 'audio/mpeg')}
                 
-                # Call to the diarization service endpoint
-                process_audio_response = requests.post(
-                    f"{DOMAIN_DIARIZATION_SERVER}/process-audio", files=files)
+        #         # Call to the diarization service endpoint
+        #         process_audio_response = requests.post(
+        #             f"{DOMAIN_DIARIZATION_SERVER}/process-audio", files=files)
 
-                # Check for success status; process the result if successful
-                if process_audio_response.status_code == 200:
-                    response_json = process_audio_response.json()
-                    transcript = str(response_json.get("messages"))  # Extracting `messages` from response
-                else:
-                    transcript = "Unavailable"
-                    qualification = "This call doesn't have enough information to provide a fair qualification."
+        #         # Check for success status; process the result if successful
+        #         if process_audio_response.status_code == 200:
+        #             response_json = process_audio_response.json()
+        #             transcript = str(response_json.get("messages"))  # Extracting `messages` from response
+        #         else:
+        #             transcript = "Unavailable"
+        #             qualification = "This call doesn't have enough information to provide a fair qualification."
 
-            except requests.exceptions.RequestException as req_err:
-                # Catch network-related errors
-                print(f"Error fetching audio from URL {recording_url}: {req_err}")
-                transcript = "Unavailable"
-                qualification = "This call doesn't have enough information to provide a fair qualification."
+        #     except requests.exceptions.RequestException as req_err:
+        #         # Catch network-related errors
+        #         print(f"Error fetching audio from URL {recording_url}: {req_err}")
+        #         transcript = "Unavailable"
+        #         qualification = "This call doesn't have enough information to provide a fair qualification."
 
-            except Exception as err:
-                # Catch all other errors
-                print(f"Unexpected error processing audio: {err}")
-                transcript = "Unavailable"
-                qualification = "This call doesn't have enough information to provide a fair qualification."
+        #     except Exception as err:
+        #         # Catch all other errors
+        #         print(f"Unexpected error processing audio: {err}")
+        #         transcript = "Unavailable"
+        #         qualification = "This call doesn't have enough information to provide a fair qualification."
 
         # Append results to lists
 

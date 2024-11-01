@@ -41,7 +41,7 @@ def main_automatic_report():
         # Calificate the calls
         else:
             print(len(leads_report))
-            # leads_report = leads_report.head(3) # DELETE THIS LINE IN PRODUCTION
+            # leads_report = leads_report.head(5) # DELETE THIS LINE IN PRODUCTION
             leads_report = calificate_calls_from_df(leads_report)
 
         # Name for the pdf
@@ -76,6 +76,6 @@ def main_automatic_report():
 
 # Schedule the report to run between 6:00 PM and 6:30 PM
 if __name__ == "__main__":
-    main_automatic_report()
+    # main_automatic_report()
     # Schedule the report to run between 6:00 PM and 6:30 PM
     schedule_report(main_automatic_report, start_hour=18, start_minute=0, end_hour=18, end_minute=30)
