@@ -3,7 +3,7 @@ import os
 
 # Local imports
 from extract_leads_report import leads_report_info
-from auxiliar_functions import get_ny_time_and_start_of_day, schedule_report, absolute_path
+from auxiliar_functions import get_ny_time_and_start_of_day, schedule_report, absolute_path, filter_by_duration
 from calificate_calls import calificate_calls_from_df
 from df_to_pdf_calification import df_to_pdf
 from send_emails import send_email_with_attachment
@@ -42,6 +42,8 @@ def main_automatic_report():
         else:
             print(len(leads_report))
             # leads_report = leads_report.head(5) # DELETE THIS LINE IN PRODUCTION
+            leads_report = filter_by_duration(leads_report, n=5)
+            print(len(leads_report))
             leads_report = calificate_calls_from_df(leads_report)
 
         # Name for the pdf

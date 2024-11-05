@@ -5,6 +5,11 @@ import ast
 import time
 from datetime import datetime
 import pytz
+import pandas as pd
+import requests
+from pydub import AudioSegment
+from io import BytesIO
+
 
 def get_ny_time_and_start_of_day():
     # Define the New York timezone
@@ -100,6 +105,51 @@ def transcripts_to_md(transcript: str) -> str:
     return md_content
 
 
+def get_audio_duration(url):
+    """
+    Function to get the duration of an audio file from a URL.
+    :param url: URL of the audio file.
+    :return: Duration of the audio file in milliseconds.
+    """
+    try:
+        # Download the audio
+        response = requests.get(url)
+        response.raise_for_status()
+
+        # Read the audio from the downloaded content
+        audio = AudioSegment.from_file(BytesIO(response.content))
+        return len(audio)  # Duration in milliseconds
+    except Exception as e:
+        print(f"Error getting audio duration from {url}: {e}")
+        return None  # Return None if there's an error
+
+def filter_by_duration(df: pd.DataFrame, n: int = 5) -> pd.DataFrame:
+    """
+    Filter the DataFrame by rows with the longest audio durations.
+    :param df: DataFrame containing audio URLs in a column named 'recording_location'.
+    :param n: The number of rows to select. If n = -1, return the entire DataFrame unfiltered.
+    :return: Filtered DataFrame with the n longest audio recordings.
+    """
+    if "recording_location" not in df.columns:
+        raise ValueError("DataFrame must contain a 'recording_location' column with the audio URLs")
+    
+    # If n is -1, return the DataFrame without filtering
+    if n == -1:
+        return df
+    
+    # Calculate the duration of each audio file
+    df['audio_duration'] = df['recording_location'].apply(lambda url: get_audio_duration(url))
+    
+    # Drop rows where the audio duration could not be obtained
+    df = df.dropna(subset=['audio_duration'])
+    
+    # Sort by duration in descending order
+    df_sorted = df.sort_values(by='audio_duration', ascending=False)
+    
+    # Select the top n rows
+    df_filtered = df_sorted.head(n)
+    
+    return df_filtered
 
 # Example usage
 if __name__ == "__main__":
