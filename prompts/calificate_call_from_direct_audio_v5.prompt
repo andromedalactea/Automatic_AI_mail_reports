@@ -33,16 +33,20 @@ You are tasked with evaluating the performance of a cold calling team consisting
         - Objection Handling: Score out of 10 for how effectively the closer rebutted any objections raised by the customer, including their tone and problem-solving approach.
         - Closing Attempt: Score out of 10 for how effectively the closer tried to secure agreement from the customer, this could include asking for a callback time.
 
+- Provide **Next Steps to Close the Lead** for each agent, suggesting specific actions they can take to help close the lead, such as sending a follow-up email, confirming future appointments, or addressing specific customer concerns.
+
 3. **Key Metrics Overview**:
 
    - Provide important metrics related to both agents’ performances. These metrics should give the manager a high-level view of key performance areas such as agent and customer engagement rates, objection frequency, and speech dynamics. **Table** should be generated for this section in HTML format reflecting metrics for the Fronter and the Closer.
 
-     Possible metrics include:
-     - Engagement Rate (A reflection of how engaged the customer appeared over time.)
-     - Average response time (How long the agent takes to respond to customer queries.)
-     - Objection Frequency (How many objections were raised over the course of the conversation.)
-     - Emotional Tone Consistency (How steady the agent's emotional tone was during the call.)
-     - Customer Sentiment Score (Derived from speech cues based on sentiment tracking. Did the customer stay engaged? Did their tone grow more negative or positive?)
+    Possible metrics include (but are not limited to):
+
+    - **Engagement Rate**: A reflection of how engaged the customer appeared over time.
+    - **Average Response Time**: How long the agent takes to respond to customer queries.
+    - **Objection Frequency**: How many objections were raised over the course of the conversation.
+    - **Emotional Tone Consistency**: How steady the agent's emotional tone was during the call.
+    - **Customer Sentiment Score**: Derived from speech cues based on sentiment tracking.
+    - **Confidence Level**: Measure of the agent's confidence based on tone, pace, and clarity.
     
     Example output (with placeholder scores):
     ```html
@@ -86,23 +90,41 @@ You are tasked with evaluating the performance of a cold calling team consisting
 
 4. **Advanced Audio Analysis**:
 
-   - **Emotional Tone Analysis**: 
-      - Evaluate the emotional tone of each agent throughout the call, detailing whether the agent maintained a professional, reassuring, or enthusiastic attitude. Did their tone mirror or counterbalance the customer’s tone?
-   
-   - **Speech Rate and Pauses**: 
-      - Analyze how both the agents and customer managed their speech and if they used pauses to encourage discussion or reflect on the content. Specify how purposeful any pause or faster speech pattern was during difficult moments or while explaining complex matters.
-   
-   - **Voice Stress Analysis**: 
-      - Use data on stress markers within speech to report on whether either agent or the customer displayed signs of stress, such as increased pitch, rapid speaking, or hesitation.
-   
-   - **Silence and Overlap Detection**: 
-      - Report on whether any awkward silences or overlapping interruptions occurred that could indicate miscommunication or disengagement.
-   
-   - **Tone Matching and Mirroring**: 
-      - Highlight any instances where agents effectively mirrored customer tone to build rapport. Did agents resonate at key emotional moments or use a contrasting tone to shift the conversation direction?
-   
-   - **Confidence Scoring**:
-      - Assign confidence scores to each agent out of 100% based on their delivery (tone, pace, clarity).
+    - **Emotional Tone Analysis**:
+
+        - Evaluate the emotional tone of each agent throughout the call, detailing whether the agent maintained a professional, reassuring, or enthusiastic attitude. Did their tone mirror or counterbalance the customer’s tone?
+
+    - **Speech Rate and Pauses**:
+
+        - Analyze how both the agents and customer managed their speech and if they used pauses to encourage discussion or reflect on the content. Specify how purposeful any pause or faster speech pattern was during difficult moments or while explaining complex matters.
+
+    - **Voice Stress Analysis**:
+
+        - Use data on stress markers within speech to report on whether either agent or the customer displayed signs of stress, such as increased pitch, rapid speaking, or hesitation.
+
+    - **Sentiment Over Time Analysis**:
+
+        - Provide a narrative description of how the customer's sentiment changed over the course of the call (e.g., Start of Call: Neutral sentiment, Mid-Call: Slightly negative, End of Call: Shifted to positive after effective objection handling).
+
+    - **Emotional Keyword Spotting**:
+
+        - Identify and list key emotional words or phrases used by the customer and agents that indicate their feelings.
+
+    - **Silence and Overlap Detection**:
+
+        - Report on whether any awkward silences or overlapping interruptions occurred that could indicate miscommunication or disengagement.
+
+    - **Tone Matching and Mirroring**:
+
+        - Highlight any instances where agents effectively mirrored the customer's tone to build rapport. Did agents resonate at key emotional moments or use a contrasting tone to shift the conversation direction?
+
+    - **Confidence Scoring**:
+
+        - Assign confidence scores to each agent out of 100% based on their delivery (tone, pace, clarity).
+
+    - **Background Noise and Clarity Assessment**:
+
+        - Assess the audio quality, mentioning any background noise, clarity issues, or other audio artifacts that could affect communication.
    
 5. **Strengths and Areas for Improvement**:
 
@@ -112,7 +134,7 @@ You are tasked with evaluating the performance of a cold calling team consisting
    - **Closer**:
      - Provide 2-3 specific strengths and areas of improvement for the closer based on how they handled objections, remained engaged or maintained composure in response to the customer.
      
-    Example:
+    Example (but are not limited to):
     - **Fronter Strengths**:
         - Maintained friendly engagement throughout the call.
         - Delivered a clear and concise introduction.
@@ -125,13 +147,15 @@ You are tasked with evaluating the performance of a cold calling team consisting
    After analyzing the call, provide tailored feedback for the improvement of both agents in specific areas, such as:
    
     - **Training Focus Areas**:
-      - Fronter could benefit from more training in objection handling or rapport building.
-      - Closer could focus on closing techniques or handling non-verbal objections.
+        - Fronter could benefit from more training in objection handling or rapport building.
+        - Closer could focus on closing techniques or handling non-verbal objections.
+
+    - **Alternative Rebuttals for Objections**:
+        - Provide alternative rebuttals for specific objections raised by the customer during the call. Include detailed examples that agents can use in future calls.
 
     - **Steps to Improve**:
-      - Suggestions might include attending a "role-playing" session or creating a dedicated list of rebuttals for the objections raised during the call.
-      
-    - Provide up to four concrete and actionable recommendations that the agents can immediately apply to their next calls.  
+        - Suggestions might include attending a role-playing session, practicing storytelling techniques, or creating a list of rebuttals for common objections.
+        - Provide up to four concrete and actionable recommendations that the agents can immediately apply to their next calls.  
       
 7. **Next Steps to Close**:
    
@@ -143,9 +167,40 @@ You are tasked with evaluating the performance of a cold calling team consisting
 
    - Add any final statements that reinforce feedback, positive reinforcement improvements, and general encouragement.
 
-9. **Output Format**:
+9. **Agent's Report**:
 
-    - Use the markdown-like format for all bullet points and text, and wrap each section in `<qualification></qualification>` tags.
+- For each agent (**fronter** and **closer**), create a personalized report including:
+
+  - **Subject**: A subject line for the message (e.g., "Performance Evaluation and Personalized Feedback").
+
+  - **Greeting**: A personalized greeting (e.g., "Hi [Agent's Name],").
+
+  - **Performance Metrics**:
+
+    - Include the agent's total score and individual scores from the **Agent Performance Summary**.
+
+  - **Advanced Audio Insights**:
+
+    - Provide insights from the **Advanced Audio Analysis** relevant to the agent.
+
+  - **Opportunities for Growth**:
+
+    - Highlight areas where the agent can improve, providing specific suggestions.
+
+  - **Next Steps to Help Close the Lead**:
+
+    - Provide actions the agent can take to assist in closing the lead.
+
+  - **Encouragement**:
+
+    - Conclude with positive remarks to motivate and encourage the agent.
+
+- Use a friendly and supportive tone throughout the message.
+
+
+10. **Output Format**:
+
+    - Use the markdown-like format for all bullet points and text, and wrap each section in `<qualification><qualification>` tags.
       
     - The outputs should be justified properly and split as structured above: 
    
@@ -153,7 +208,8 @@ Example output format:
 
 ```
 <transcript>
-John (Customer): Hello, who is this? [ ... ] Anna (Fronter): Hi John, this is Anna ...
+John (Customer): Hello, who is this? [ ... ]
+Anna (Fronter): Hi John, this is Anna ...
 <transcript>
 <qualification>
 ## **Call Performance Evaluation Report**
@@ -246,40 +302,47 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
       <td>[████████░░░] <strong>60%</strong></td>
       <td>[█████████░░░] <strong>70%</strong></td>
     </tr>
+    <tr>
+      <td><strong>Confidence Level</strong></td>
+      <td>[█████████░░░░] <strong>85%</strong></td>
+      <td>[██████████░░] <strong>90%</strong></td>
+    </tr>
   </tbody>
 </table>
+
 ---
 
 #### **Advanced Audio Analysis** 🎧
 
 ##### **Emotional Tone Analysis** 🎭
 
-- **Nadine:**
-  - Maintained a **warm and friendly** tone throughout the call.
-  - Expressed enthusiasm, especially during the introduction.
+- *Nadine:*
+  - *Warmth and Enthusiasm:* Maintained a consistently friendly tone, especially during the introduction, which helped in building initial rapport.
+  - *Adaptability:* Adjusted her tone to match Roger's mood, showing empathy and understanding.
 
-- **Adam:**
-  - Adopted a **reassuring and confident** tone when handling objections.
-  - Mirrored the customer's concern to build rapport.
+- *Adam:*
+  - *Reassurance and Confidence:* Adopted a calm and confident tone when addressing objections, which helped ease Roger's concerns.
+  - *Empathy:* Mirrored Roger's hesitation, which made him feel heard and valued.
 
 ##### **Speech Rate and Pauses** 🗣️
 
-- **Nadine:**
-  - Spoke at a moderate pace (~150 words per minute).
-  - Utilized pauses effectively, allowing Roger to process information.
+- *Nadine:*
+  - *Moderate Pace:* Spoke at approximately 150 words per minute, ensuring clarity.
+  - *Effective Pausing:* Used pauses strategically to allow Roger to interject or ask questions.
 
-- **Adam:**
-  - Slightly slower speech rate (~140 words per minute) when explaining complex points.
-  - Paused after addressing objections, encouraging Roger to engage.
+- *Adam:*
+  - *Deliberate Pace:* Reduced speech rate to around 140 words per minute when explaining complex concepts.
+  - *Thoughtful Pauses:* Allowed moments of silence after addressing objections, giving Roger time to process information.
 
 ##### **Voice Stress Analysis** 📈
 
-- **Customer (Roger):**
-  - Slight increase in vocal stress when discussing potential customer reactions to the cash discount program.
-  - Stress levels decreased after Adam provided reassurance.
+- *Customer (Roger):*
+  - *Stress Indicators:* Detected slight increases in vocal stress when discussing customer reactions to the cash discount program.
+  - *Relaxation Cues:* Stress levels decreased after receiving clear explanations from Adam.
 
-- **Agents:**
-  - Both maintained low stress levels, indicating confidence and control.
+- *Agents:*
+  - *Consistent Calmness:* Both agents displayed low stress levels throughout the call, indicating confidence and control.
+
 
 ##### **Sentiment Over Time Graph** 📈
 
@@ -289,22 +352,23 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 
 ##### **Emotional Keyword Spotting** 📝
 
-- **Customer:**
-  - Used words like "concerned," "not sure," and "customers might not like."
+- **Roger:**
+    - Words like "concerned," "not sure," and "customers might not like" indicated areas of hesitation.
 
 - **Agents:**
-  - Used reassuring words like "understand," "benefit," "appreciate," and "opportunity."
+    - Used positive and reassuring words such as "understand," "benefit," "appreciate," and "opportunity" to address concerns.
+
 
 ##### **Silence and Overlap Detection** ⏱️
 
-- **Interruptions:** None detected; agents allowed Roger to express his thoughts fully.
-- **Overlaps:** Minimal, indicating active listening and respect for speaking turns.
+- *Minimal Interruptions:* Agents allowed Roger to speak without interruption, showing respect and active listening.
+- *Balanced Dialogue:* The conversation flowed smoothly with appropriate turn-taking.
 
 ##### **Tone Matching and Mirroring** 🎭
 
-- **Agents:**
-  - Matched Roger's tone by adopting a calm and considerate demeanor during concerns.
-  - Increased energy levels when highlighting benefits to re-engage interest.
+- **Nadine and Adam:**
+    - Successfully mirrored Roger's tone and energy levels, which helped in building rapport and trust.
+    - Adjusted their own delivery based on Roger's reactions, demonstrating adaptability.
 
 ##### **Confidence Scoring** 💪
 
@@ -322,19 +386,47 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 
 ---
 
+#### **Strengths and Areas for Improvement**
+
+**Fronter (Nadine)**
+
+- **Strengths**:
+  - Warm and enthusiastic tone.
+  - Clear and concise introduction.
+  - Effective use of pauses.
+
+- **Areas for Improvement**:
+  - Incorporate storytelling.
+  - Use analogies to simplify concepts.
+  - Monitor customer's emotional cues.
+
+**Closer (Adam)**
+
+- **Strengths**:
+  - Effective objection handling.
+  - Reassuring and confident tone.
+  - High confidence level.
+
+- **Areas for Improvement**:
+  - Provide tailored responses.
+  - Highlight mutual benefits.
+  - Introduce special offers.
+
+---
+
 #### **Recommendations for Management** 💡
 
 ##### **Training Focus Areas**
 
 **For Nadine:**
 
-1. **Incorporate Storytelling** 📖
-   - **Action:** Share success stories to enhance emotional connection.
-   - **Benefit:** May increase customer engagement levels.
+1. *Enhance Storytelling Skills* 📖
+   - *Action:* Integrate short, relevant success stories into conversations.
+   - *Benefit:* Makes the value proposition more relatable and engaging.
 
-2. **Enhance Value Proposition Clarity** 🔍
-   - **Action:** Use relatable analogies.
-   - **Benefit:** Simplifies complex concepts, aiding customer understanding.
+2. *Use Analogies for Clarity* 🔍
+   - *Action:* Employ simple analogies to explain complex concepts.
+   - *Benefit:* Helps clients understand and retain information better.
 
 **For Adam:**
 
@@ -346,6 +438,9 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
    - **Action:** Offer limited-time incentives.
    - **Benefit:** Encourages prompt decision-making.
 
+3. *Emphasize Mutual Benefits* 🤝
+   - *Action:* Highlight how solutions benefit both the business and its customers.
+   - *Benefit:* Addresses potential client worries about customer reactions.
 ---
 
 #### **Next Steps** 🚀
@@ -359,9 +454,15 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 - **Schedule Coaching Sessions:**
   - Review call recordings with agents to highlight strengths and areas for improvement.
 
+#### *General Recommendations:*
+
+- *Advanced Training Sessions:* Organize workshops focusing on emotional intelligence, storytelling, and advanced objection handling.
+- *Regular Feedback:* Provide continuous, personalized feedback to maintain and improve performance levels.
+- *Resource Development:* Create a repository of success stories, analogies, and rebuttals for agents to reference.
+
 ---
 
-### **Part 2: Agent's Report**
+### **Part 2: Personalized Agent Feedback**
 
 #### **Agent Performance Feedback**
 
@@ -373,18 +474,25 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 
 **Hi Nadine,**
 
-Great job on your call with **Roger G.** on **October 22, 2024**! Your friendly introduction and clear explanation of the call's purpose were excellent.
+Great job on your recent call with Roger G. Your ability to establish a genuine connection stood out and set a positive tone for the entire conversation.
 
-**Total Score:** [██████████░░░] **24/30**
-
-- **Engagement & Introduction:** [████████░░░] **8/10**
-- **Value Proposition Communication:** [████████░░░] **8/10**
-- **Transition to Closer:** [████████░░░] **8/10**
+- *Total Score:* [██████████░░░] *24/30*
+  - *Engagement & Introduction:* [████████░░░] *8/10*
+  - *Value Proposition Communication:* [████████░░░] *8/10*
+  - *Transition to Closer:* [████████░░░] *8/10*
+  - *Emotional Tone Consistency:* [█████████░░░░] *70%*
+  - *Confidence Level:* [█████████░░░░] *85%*
 
 **Emotional Tone Analysis:**
 
 - Maintained a warm and enthusiastic tone.
 - Your positivity set a welcoming atmosphere for the call.
+
+- **Speech Patterns:** 
+- Effective pauses.
+
+- **Rapport Building:** 
+-Strong initial connection.
 
 **Next Steps to Help Close the Lead:**
 
@@ -433,7 +541,7 @@ Excellent job on your call with **Roger G.** on **October 22, 2024**! Your profe
 - **Objection Handling:** [████████░░░] **8/10**
 - **Closing Attempt:** [████████░░░] **8/10**
 
-**Emotional Tone Analysis:**
+**Emotional Tone Analysis:** 🎭
 
 - Adopted a reassuring tone when addressing Roger's concerns.
 - Mirrored Roger's hesitation to build empathy.
@@ -504,12 +612,13 @@ If you have any questions or would like to discuss these points further, feel fr
 ```
 
 Important details:
-
+- THE PREVIOUS EXAMPLE WAS JUST A SHORT EXAMPLE, KEEP IN MIND THAT YOUR RESPONSE CAN BE AS LONG AS NECESSARY AND THAT YOU CAN EXPAND FURTHER ON EACH OF THE ITEMS TO PROVIDE A MORE ACCURATE AND DETAILED EVALUATION. THEREFORE, YOU CAN OFFER A GREATER NUMBER OF ITEMS WHERE POSSIBLE AND PROVIDE LONGER RESPONSES TO ALLOW FOR MORE DETAIL.
 - The AI should generate the transcriptions and qualifications ensuring high accuracy by leveraging audio data, including voice tone, speech patterns, interruptions, and other natural indicators.
 - If the audio or quality lacks sufficient detail for qualification, your response should simply state: "This call doesn't have enough information to provide a fair qualification."
 - don't worries abpout ouput tokens so provide the entire transcript and qualification
 -  Don't provide nothing in the reponse to fill, like [Your Name], don't provide nothing like that, yout're response is the final qualification without fill nothing
 - Your response Always should have the html tags, if the trascript is not enough for the qualification so say:
+
 <transcript>
 John (Customer): Hello
 <transcript>

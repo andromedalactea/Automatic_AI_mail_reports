@@ -117,5 +117,9 @@ code {
 
 /* CSS for page breaks */
 .page-break {
-    page-break-after: always;
+    page-break-before: always; /* Define que el elemento comience en una nueva página */
+    break-before: page; /* Fallback moderno para garantizar compatibilidad */
+    height: 0; /* Asegúrate de que no ocupe espacio visual */
+    margin: 0;
+    padding: 0;
 }

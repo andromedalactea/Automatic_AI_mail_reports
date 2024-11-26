@@ -17,7 +17,10 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
     output_pdf_path (str): The path where the PDF file will be saved.
     css_path (str): The path to the CSS file for styling the PDF.
     """
-    # Initialize an empty string to store the entire markdown content
+    # Reset the index
+    df = df.reset_index(drop=True)
+
+    # Initialize the markdown content
     markdown_content = ""
     print(df.head())
 
@@ -68,24 +71,29 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             company = row['last_name'] if pd.notna(row['last_name']) else "Unknown"
             line_content += f"**Company:** {company}\n\n"
 
-            # Infor about the calification and transcript
+            # Info about the calification and transcript
             line_content += f"\n{row['qualification']}\n"
             line_content += f"\n{transcript}\n"
 
             # Add a page break after each row
+            print(index, len(df))
             if index < len(df) - 1:
                 line_content += "\n<div class='page-break'></div>\n"
 
-            
             # Append this line to the overall markdown content
             markdown_content += line_content
+
+    with open("debug_output.md", "w", encoding="utf-8") as debug_file:
+        debug_file.write(markdown_content)
     
     if markdown_content != "":
 
-        # Delete the last page break
-        print(markdown_content)
         # Convert Markdown content to HTML
         html_content = markdown2.markdown(markdown_content)
+
+        # Save the HTML content to a file for
+        with open("debug_output.html", "w", encoding="utf-8") as debug_file:
+            debug_file.write(html_content)
 
         # Read and add CSS to HTML
         with open(css_path, 'r') as css_file:
