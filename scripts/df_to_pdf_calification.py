@@ -83,17 +83,17 @@ def df_to_pdf(df: pd.DataFrame, output_pdf_path: str, css_path: str) -> None:
             # Append this line to the overall markdown content
             markdown_content += line_content
 
-    with open("debug_output.md", "w", encoding="utf-8") as debug_file:
-        debug_file.write(markdown_content)
+    # with open("debug_output.md", "w", encoding="utf-8") as debug_file:
+    #     debug_file.write(markdown_content)
     
     if markdown_content != "":
 
         # Convert Markdown content to HTML
         html_content = markdown2.markdown(markdown_content)
 
-        # Save the HTML content to a file for
-        with open("debug_output.html", "w", encoding="utf-8") as debug_file:
-            debug_file.write(html_content)
+        # # Save the HTML content to a file for
+        # with open("debug_output.html", "w", encoding="utf-8") as debug_file:
+        #     debug_file.write(html_content)
 
         # Read and add CSS to HTML
         with open(css_path, 'r') as css_file:

@@ -14,9 +14,39 @@ You are tasked with evaluating the performance of a cold calling team consisting
    - Include a **Overall Performance Score**, with scores assigned to key performance aspects of both agents. Factors such as "Conversation Difficulty," "Estimated Lead Quality," and "Estimated Probability of Deal Closing" should also be assigned scores.
    
       Example guidelines for scoring:
-      - **Conversation Difficulty**: 1/5 for easy calls to 5/5 for very difficult calls, with consideration given to customer objections or disengagement.
-      - **Estimated Lead Quality**: Reflects how promising the customer seems based on objections raised, receptiveness, and interest.
-      - **Probability of Deal Closing**: Reflects the likelihood of closing a deal based on the customer's tone, questions, and objections.
+      - **Conversation Difficulty (1-5 scale)**
+          Parameters:
+
+          Lead Objections: Track how often the lead raises objections or concerns.
+          Tone Analysis: Monitor the lead’s emotional tone (e.g., frustration, resistance).
+          Engagement Level: Measure how engaged the lead is (e.g., response rate, question asking).
+          Conversation Flow: Detect how smoothly the conversation progresses.
+          Scoring Example:
+
+          1/5: Minimal objections, very cooperative.
+          5/5: Frequent objections, resistant tone, difficult engagement.
+
+      - **Lead Quality Estimate (Percentage)**
+          Parameters:
+
+          Positive Sentiment Ratio: High sentiment from the lead during key value propositions.
+          Lead Interest Indicators: Detect phrases like "I’m interested," or "Tell me more."
+          Engagement Frequency: Count how often the lead asks follow-up questions.
+          Scoring Example:
+
+          100%: Clear signals of high interest, lots of follow-up questions.
+          50%: Mixed signals, occasional positive cues.
+
+      - **Deal Closure Probability (Percentage)**
+          Parameters:
+
+          Commitment Language: Detect commitment phrases like "Let’s proceed," or "What’s next?"
+          Objection Handling Success: Track how successfully the agent resolves objections.
+          Closing Statements: Monitor if the agent makes a strong closing attempt and how the lead reacts.
+          Scoring Example:
+
+          90-100%: Lead uses positive commitment language, no unresolved objections.
+          50%: Lead expresses uncertainty, but may be swayed.
 
 2. **Agent Performance Summary**:
 
@@ -25,13 +55,61 @@ You are tasked with evaluating the performance of a cold calling team consisting
      - Break down performance into the following areas, and score as indicated:
        
       **Fronter**:
-        - Engagement and Introduction: Score out of 10 for clear, polite, and effective conversation initiation.
-        - Value Proposition Communication: Score out of 10 for how well the agent communicated the key benefits of their product or service.
-        - Transition to Closer: Score out of 10 for how smoothly the call was handed over to the closer. Did the fronter prepare the customer adequately for the handover?
+        - **Engagement & Intro (1-10 scale for Fronter)**
+            Parameters:
+
+            Introduction Clarity: Check if the agent clearly states purpose early in the call.
+            Lead Response Time: Measure how quickly and positively the lead responds to the introduction.
+            Rapport Building: Detect language aimed at building rapport (e.g., personalization, small talk).
+            Scoring Example:
+
+            9-10: Strong, clear introduction, immediate engagement from the lead.
+            4-5: Vague intro, lead seems confused or hesitant.
+
+        - **Value Proposition Communication (1-10 scale for Fronter and Closer)**
+            Parameters:
+
+            Clarity of Proposition: Check if the value proposition is clearly stated.
+            Lead Understanding: Analyze lead’s responses for signs of understanding or confusion.
+            Interest Indicators: Track lead’s engagement with the value proposition.
+            Scoring Example:
+
+            9-10: Clear value proposition, lead asks clarifying or engaging questions.
+            4-5: Vague proposition, lead seems uninterested or confused.
+
+        - **Transition to Closer (1-10 Scale for Fronter)**
+            Parameters:
+            Context Clarity: Evaluate whether the fronter effectively summarized the context and key points of the call, ensuring the lead is clear on the purpose of the handoff to the closer.
+            Handoff Framing: Determine how well the fronter positioned the closer as the expert or appropriate next point of contact (e.g., introducing the closer’s role and expertise).
+            Lead Preparedness: Assess if the lead feels ready and willing to engage with the closer. Signs include positive verbal confirmation, questions addressed before the handoff, or the lead expressing interest in speaking further.
+            Seamlessness of the Transition: Check if the handover feels natural and smooth (e.g., no confusion, rushed tone, or awkward pauses during the transition).
+            Scoring Example:
+            9-10: The fronter clearly frames the closer as the expert, fully prepares the lead for the transition, and the handoff feels seamless and professional. The lead is receptive and ready to engage with the closer.
+            6-7: The transition is mostly smooth, but there are minor gaps, such as slight uncertainty from the lead or a less confident introduction of the closer.
+            4-5: The transition feels rushed or poorly executed. The lead exhibits confusion or hesitation, and the closer's role may not have been positioned clearly.
 
       **Closer**:
-        - Objection Handling: Score out of 10 for how effectively the closer rebutted any objections raised by the customer, including their tone and problem-solving approach.
-        - Closing Attempt: Score out of 10 for how effectively the closer tried to secure agreement from the customer, this could include asking for a callback time.
+        - **Objection Handling (1-10 scale for Closer)**
+            Parameters:
+
+            Objection Identification: Detect clear objections raised by the lead.
+            Resolution Success: Measure how effectively the agent addresses objections (e.g., using examples, data, or empathetic language).
+            Lead Reaction: Analyze the lead’s response after the objection is addressed (e.g., agreement, further pushback).
+            Scoring Example:
+
+            9-10: Objections addressed clearly and to the lead’s satisfaction.
+            4-5: Agent struggles with objections, lead remains unconvinced.
+
+        - **Closing Techniques (1-10 scale for Closer)**
+            Parameters:
+
+            Call to Action (CTA): Detect if the agent makes a clear ask at the end of the call.
+            Lead’s Reaction: Analyze how the lead responds to the closing ask (e.g., "Let’s move forward," or continued hesitation).
+            Urgency Creation: Track if the agent creates a sense of urgency (e.g., limited-time offers).
+            Scoring Example:
+
+            9-10: Strong CTA with positive lead reaction.
+            4-5: Weak CTA or no commitment from the lead.
 
 - Provide **Next Steps to Close the Lead** for each agent, suggesting specific actions they can take to help close the lead, such as sending a follow-up email, confirming future appointments, or addressing specific customer concerns.
 
@@ -41,12 +119,67 @@ You are tasked with evaluating the performance of a cold calling team consisting
 
     Possible metrics include (but are not limited to):
 
-    - **Engagement Rate**: A reflection of how engaged the customer appeared over time.
-    - **Average Response Time**: How long the agent takes to respond to customer queries.
-    - **Objection Frequency**: How many objections were raised over the course of the conversation.
-    - **Emotional Tone Consistency**: How steady the agent's emotional tone was during the call.
-    - **Customer Sentiment Score**: Derived from speech cues based on sentiment tracking.
-    - **Confidence Level**: Measure of the agent's confidence based on tone, pace, and clarity.
+    - **Engagement Rate**: 
+        Parameters:
+            Customer Interaction Frequency: Measure how engaged the customer appears throughout the conversation, including verbal cues like asking questions, responding promptly, or providing detailed answers.
+            Sustained Interest: Assess whether the lead’s engagement remains steady or improves over the call, rather than fading.
+            Call Flow Dynamics: Identify moments of strong focus vs. disengagement (e.g., multitasking, vague responses).
+            Scoring Example:
+            9-10: The customer consistently participates, asks questions, and remains attentive throughout the interaction.
+            6-7: Engagement fluctuates, with some periods of interest and others where the customer seems distracted or hesitant.
+            4-5: The lead shows little to no engagement, replying minimally or showing signs of disinterest.
+
+    - **Average Response Time (seconds)**
+            Parameters:
+
+            Agent Response Lag: Measure how long the agent takes to respond to lead’s comments or questions.
+            Lead Response Lag: Track how long it takes for the lead to respond to the agent.
+            Scoring Example:
+
+            Low scores for faster response times.
+            Higher scores for significant pauses that may signal hesitation or lack of confidence.
+
+    - **Objection Frequency**: 
+        Parameters:
+            Types of Objections: Track how many objections (e.g., related to price, timing, product fit, or trust) are raised over the course of the conversation.
+            Objection Resolution Effectiveness: Monitor whether the objections raised are successfully addressed and if they lead to improved interest from the lead.
+            Pattern Recognition: Note any recurring objections and their impact on the call’s progression.
+            Scoring Example:
+            Low Frequency: Indicates a smooth conversation where the lead’s concerns are primarily addressed early or avoided altogether.
+            High Frequency: Signals multiple pain points or doubts that need resolution, which may demand significant agent effort.
+
+    -  **Emotional Tone Consistency (Percentage)**
+            Parameters:
+
+            Agent Tone Stability: Monitor for tone consistency using emotion recognition (e.g., enthusiastic, calm, etc.).
+            Tone Matching: Check if the agent matches or adapts their tone to the lead’s emotional state.
+            Scoring Example:
+
+            90-100%: Consistent tone, emotionally aligned with the lead.
+            50%: Inconsistent tone, mismatch with lead’s emotions.
+
+    - **Customer Sentiment Score**: 
+        Parameters:
+            Positive Sentiment Indicators: Track verbal cues like enthusiastic responses, agreement, and engagement with the value proposition.
+            Negative Sentiment Indicators: Note expressions of doubt, frustration, or disinterest in the conversation.
+            Neutral Sentiment Indicators: Highlight instances of passive or non-committal language, which may indicate a middle ground in interest level.
+            Trend Analysis: Determine how the customer’s sentiment evolves (e.g., negative to positive, or vice versa) over the course of the conversation.
+            
+            Scoring Example:
+            High Scores: Indicate predominantly positive or improving sentiment during the call.
+            Low Scores: Reflect declining sentiment, disinterest, or persistent objections.
+
+    - **Confidence Level (Percentage)**
+            Parameters:
+
+            Speech Patterns: Analyze vocal Adamers like pitch, volume, and hesitation (e.g., filler words).
+            Clarity and Authority: Track if the agent speaks with authority and confidence in responses.
+            Tone Assertiveness: Check for assertive tone without being overly aggressive.
+            
+            Scoring Example:
+
+            90-100%: Confident, authoritative delivery, minimal hesitation.
+            50%: Frequent pauses, hesitations, or lack of conviction.
     
     Example output (with placeholder scores):
     ```html
@@ -90,41 +223,103 @@ You are tasked with evaluating the performance of a cold calling team consisting
 
 4. **Advanced Audio Analysis**:
 
-    - **Emotional Tone Analysis**:
+    - **Emotional Tone Analysis**
+        Parameters:
 
-        - Evaluate the emotional tone of each agent throughout the call, detailing whether the agent maintained a professional, reassuring, or enthusiastic attitude. Did their tone mirror or counterbalance the customer’s tone?
+        Sentiment Analysis: Use natural language processing to detect positive, neutral, or negative sentiment from both agents and the lead.
+        Keyword Analysis: Track emotional keywords (e.g., "concerned," "excited") used during the call.
+        Scoring Example:
 
-    - **Speech Rate and Pauses**:
+        Positive: High use of positive sentiment keywords by both agents and lead.
+        Negative: Lead uses negative sentiment keywords despite agents' efforts.
 
-        - Analyze how both the agents and customer managed their speech and if they used pauses to encourage discussion or reflect on the content. Specify how purposeful any pause or faster speech pattern was during difficult moments or while explaining complex matters.
+    - **Speech Rate and Pauses (Words per Minute & Pauses)**
+        Parameters:
 
-    - **Voice Stress Analysis**:
+        Speech Rate Monitoring: Detect if the agent’s speech rate is within the optimal range for clarity (e.g., 130-160 WPM).
+        Pauses: Measure effective use of pauses for emphasis or to allow lead time to process information.
+        Scoring Example:
 
-        - Use data on stress markers within speech to report on whether either agent or the customer displayed signs of stress, such as increased pitch, rapid speaking, or hesitation.
+        9-10: Ideal speech rate with well-placed pauses.
+        4-5: Speech too fast, no pauses or too many pauses.
+
+    - **Voice Stress Analysis**
+        Parameters:
+
+        Lead Stress Adamers: Measure pitch, tone, and vocal modulation for stress indicators.
+        Agent Stress Adamers: Detect stress patterns in agent's voice, reflecting confidence or discomfort.
+        Scoring Example:
+
+        Low Stress (ideal): Agents handle objections or pressure well, and lead stress decreases.
+        High Stress: Agents seem flustered, and lead stress remains or increases.
 
     - **Sentiment Over Time Analysis**:
 
-        - Provide a narrative description of how the customer's sentiment changed over the course of the call (e.g., Start of Call: Neutral sentiment, Mid-Call: Slightly negative, End of Call: Shifted to positive after effective objection handling).
+        Parameters:
+            Sentiment Shifts: Track how the customer’s sentiment evolves during the different stages of the call (start, middle, end). Identify key moments where their tone, word choice, or engagement level indicates a notable change.
+            Call Milestones: Describe what drove the sentiment shifts (e.g., introduction, value proposition, objection handling, closer handoff). Highlight cause-effect relationships.
+            Final Sentiment Status: Summarize the overall sentiment at the end of the call.
+            Example Narrative:
 
+            "Start of Call: Neutral sentiment with minimal engagement. Mid-Call: Customer expressed slight skepticism about pricing but seemed interested in product features. End of Call: Shifted to positive sentiment after objection was effectively handled and agent clarified the value proposition."
+    
     - **Emotional Keyword Spotting**:
 
-        - Identify and list key emotional words or phrases used by the customer and agents that indicate their feelings.
+        Parameters:
+            Emotional Expressions: Identify emotional words or phrases used by the customer (e.g., “frustrated,” “excited,” “confused”).
+            Agent Acknowledgment: Note how the agent responds to these emotional cues. Positive responses might include empathetic or reassuring language to address customer emotions.
+            Keyword Categorization: Classify keywords as positive, negative, or neutral to track emotional trends during the session.
+            Example Output:
 
-    - **Silence and Overlap Detection**:
+            Customer Keywords: "Excited, unsure, frustrated, impressed."
+            Agent Keywords: "Understandable, confident, happy to assist."
 
-        - Report on whether any awkward silences or overlapping interruptions occurred that could indicate miscommunication or disengagement.
+    - **Silence and Overlaps**
+        Parameters:
+
+        Conversation Interruptions: Detect interruptions or overlaps in speech between agent and lead.
+        Silence Gaps: Track moments of silence (both excessive and minimal), indicating hesitation or disengagement.
+        Scoring Example:
+
+        High Score: Minimal interruptions, well-timed pauses.
+        Low Score: Frequent overlaps or awkward silences.
 
     - **Tone Matching and Mirroring**:
 
-        - Highlight any instances where agents effectively mirrored the customer's tone to build rapport. Did agents resonate at key emotional moments or use a contrasting tone to shift the conversation direction?
+        Parameters:
+            Emotional Alignment: Assess whether the agent effectively mirrors the customer’s emotional tone to create a sense of rapport. For instance, if a customer sounds excited, the agent mirrors that enthusiasm. If a customer is hesitant, the agent adopts a calming tone.
+            Strategic Contrasts: Highlight moments where the agent deliberately contrasts the customer’s tone to shift the emotional direction of the conversation (e.g., using an optimistic tone to counteract skepticism).
+            Impact on Engagement: Determine whether tone alignment positively influenced rapport and the customer’s confidence in the agent’s message.
+        Scoring Example:
+
+        9-10: Agent consistently mirrors or adapts their tone appropriately to match or influence the customer’s emotional state.
+        6-7: Some alignment between agent and customer tone, but a few missed emotional cues or mismatches.
+        4-5: Agent shows little or no effort to align with the customer’s tone, resulting in shallow rapport.
 
     - **Confidence Scoring**:
 
-        - Assign confidence scores to each agent out of 100% based on their delivery (tone, pace, clarity).
+        Parameters:
+
+        Delivery Quality: Assess the agent’s tone, pacing, and articulation to identify confidence indicators like well-paced speech, assertive delivery, and lack of hesitation.
+        Body Language in Voice: Even over a phone call, confidence can be conveyed through vocal posture. Look for upward inflections, strong openings, and robust closings.
+        Hesitation Adamers: Count fillers, stammering, or pauses that reveal a lack of certainty. Confidence should sound natural and not scripted.
+        Scoring Example:
+
+        90-100%: Agent speaks with consistent authority, clear tone, and assured delivery throughout the conversation.
+        50-60%: Frequent hesitation, unclear statements, or lack of assertiveness, diminishing overall confidence perception.
 
     - **Background Noise and Clarity Assessment**:
 
-        - Assess the audio quality, mentioning any background noise, clarity issues, or other audio artifacts that could affect communication.
+        Parameters:
+
+            Audio Quality: Evaluate the clarity of the agent's and customer’s audio. Identify issues such as static, echo, or muffled voices that may impair communication.
+            Background Noise: Note any disruptive ambient noise (e.g., traffic, typing sounds, conversations in the background) from either side that impacts the call’s professionalism.
+            Impact on Call Effectiveness: Measure whether any audio issues affected comprehension or the customer’s ability to engage.
+            Scoring Example:
+
+            9-10: Excellent audio clarity with no noticeable background noise. Communication is uninterrupted and professional.
+            6-7: Minor audio issues, such as faint background noise, but they do not significantly affect communication.
+            4-5: Persistent audio issues or loud background noise that disrupts the flow or comprehension of the call.
    
 5. **Strengths and Areas for Improvement**:
 
@@ -193,14 +388,14 @@ You are tasked with evaluating the performance of a cold calling team consisting
 
   - **Encouragement**:
 
-    - Conclude with positive remarks to motivate and encourage the agent.
+    - Conclude with positive reAdams to motivate and encourage the agent.
 
 - Use a friendly and supportive tone throughout the message.
 
 
 10. **Output Format**:
 
-    - Use the markdown-like format for all bullet points and text, and wrap each section in `<qualification><qualification>` tags.
+    - Use the Adamdown-like format for all bullet points and text, and wrap each section in `<qualification><qualification>` tags.
       
     - The outputs should be justified properly and split as structured above: 
    
@@ -214,9 +409,9 @@ Anna (Fronter): Hi John, this is Anna ...
 <qualification>
 ## **Call Performance Evaluation Report**
 
----
 
-### **Part 1: Manager's Report**
+
+### **Manager's Report**
 
 #### **Executive Summary**
 
@@ -224,21 +419,31 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 
 #### **Overall Performance Score** 🌟
 
-- **Conversation Difficulty:** [██░░░░░░░░░] **2/5 (Moderate)**
-- **Estimated Lead Quality:** [██████████░░] **80%**
-- **Estimated Probability of Deal Closing:** [█████████░░░░] **70%**
+- **Conversation Difficulty:** [███░░░░░░░░] **3/5 (Moderate)**  
+   - Roger raised objections related to pricing (“It sounds expensive; I’m not sure it’s worth the investment”) and customer impact (“My customers may not understand the discount system”), reflecting moderate resistance. These objections were resolved to varying degrees, but his engagement level varied across the call.  
 
----
+- **Estimated Lead Quality:** [█████████░░░] **70%**  
+   - Roger expressed interest in understanding the program's financial benefits and requested additional case studies. However, his hesitation regarding implementation signals that he needs further reassurance.  
+
+- **Estimated Probability of Deal Closing:** [████████░░░░] **60%**  
+   - While objections were addressed, no firm commitment was made during the call. Tailored follow-ups and an urgency-driven approach could improve close probability.  
+
+
 
 #### **Agent Performance Summary**
 
 ##### **Fronter (Nadine)** 😊
 
-**Total Score:** [██████████░░░] **24/30**
+**Total Score:** [██████████░░░] **22/30**
 
-- **Engagement & Introduction:** [████████░░░] **8/10**
-- **Value Proposition Communication:** [████████░░░] **8/10**
-- **Transition to Closer:** [████████░░░] **8/10**
+- **Engagement & Introduction:** [███████░░░░░] **7/10**  
+   Nadine opened the conversation politely but didn’t immediately state the purpose of the call, leading to an initial hesitation from Roger, reflected in his tone ("Sorry, what exactly is this about?"). While she built rapport by asking about his business size ("How does your daily customer volume look?"), the intro lacked a strong purpose statement, slightly affecting lead clarity.
+
+- **Value Proposition Communication:** [████████░░░] **8/10**  
+   Nadine clearly explained the key benefit, stating, *"This program has helped similar owners save up to 15% monthly by eliminating processing fees."* Roger showed interest, responding with *"How exactly does it work?"*—a positive engagement indicator. However, additional supporting examples could have further clarified the value proposition.  
+
+- **Transition to Closer:** [████████░░░] **7/10**  
+   Nadine introduced Adam as an expert with a warm handoff, saying, *"Adam specializes in tailoring solutions for businesses like yours—he’ll address your specific concerns about customer reactions."* While Roger responded affirmatively, his tone showed mild hesitation, suggesting the transition could have emphasized Adam’s expertise more effectively.
 
 **Next Steps to Close the Lead:**
 
@@ -251,10 +456,13 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 
 ##### **Closer (Adam)** 👍
 
-**Total Score:** [███████████░░] **16/20**
+**Total Score:** [███████████░░] **13/20**
 
-- **Objection Handling:** [████████░░░] **8/10**
-- **Closing Attempt:** [████████░░░] **8/10**
+- **Objection Handling:** [███████░░░░░] **7/10**  
+    Adam effectively acknowledged Roger’s main pricing concern, saying, *"I understand it may seem like a big switch, but think of it as a way to protect your profit margins long term."* However, his rebuttal for customer reactions lacked data to alleviate Roger’s doubts fully, leading to continued hesitation.  
+
+- **Closing Techniques:** [█████░░░░░░░] **6/10**  
+    Adam provided closing suggestions, such as *"Let's schedule the system setup trial, and you can witness the customer response first-hand."* However, there was no strong creation of urgency, nor did Roger express commitment language like “Let’s proceed.”  
 
 **Next Steps to Close the Lead:**
 
@@ -264,7 +472,10 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 2. **Prepare for the Follow-Up Call** 📞
    - Address Roger's concerns with personalized solutions.
 
----
+3. **Incorporate Value Incentives** 🌟  
+   - Introduce urgency by offering Roger a limited-time setup discount or promotional deal.  
+
+
 
 #### **Key Metrics Overview** 📊
 
@@ -310,7 +521,7 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
   </tbody>
 </table>
 
----
+
 
 #### **Advanced Audio Analysis** 🎧
 
@@ -384,7 +595,7 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
   - Excellent audio clarity from both agents and the customer.
   - No significant background noise detected.
 
----
+
 
 #### **Strengths and Areas for Improvement**
 
@@ -412,7 +623,7 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
   - Highlight mutual benefits.
   - Introduce special offers.
 
----
+
 
 #### **Recommendations for Management** 💡
 
@@ -441,7 +652,7 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 3. *Emphasize Mutual Benefits* 🤝
    - *Action:* Highlight how solutions benefit both the business and its customers.
    - *Benefit:* Addresses potential client worries about customer reactions.
----
+
 
 #### **Next Steps** 🚀
 
@@ -460,17 +671,16 @@ On **October 22, 2024**, a 5-minute call was conducted with lead **Roger G. (ID:
 - *Regular Feedback:* Provide continuous, personalized feedback to maintain and improve performance levels.
 - *Resource Development:* Create a repository of success stories, analogies, and rebuttals for agents to reference.
 
+
 ---
 
-### **Part 2: Personalized Agent Feedback**
-
-#### **Agent Performance Feedback**
+### **Personalized Agent Feedback**
 
 ##### **To: Nadine**
 
 **Subject: Performance Evaluation and Personalized Feedback**
 
----
+
 
 **Hi Nadine,**
 
@@ -524,13 +734,13 @@ Great job on your recent call with Roger G. Your ability to establish a genuine 
 
 **Keep up the fantastic work!** Your positive energy makes a difference.
 
----
+
 
 ##### **To: Adam**
 
 **Subject: Performance Evaluation and Tailored Objection Handling**
 
----
+
 
 **Hi Adam,**
 
@@ -597,7 +807,7 @@ Excellent job on your call with **Roger G.** on **October 22, 2024**! Your profe
 
 **Keep up the great work!** These strategies will enhance your effectiveness.
 
----
+
 
 #### **Final Thoughts for Both of You**
 
@@ -613,6 +823,7 @@ If you have any questions or would like to discuss these points further, feel fr
 
 Important details:
 - THE PREVIOUS EXAMPLE WAS JUST A SHORT EXAMPLE, KEEP IN MIND THAT YOUR RESPONSE CAN BE AS LONG AS NECESSARY AND THAT YOU CAN EXPAND FURTHER ON EACH OF THE ITEMS TO PROVIDE A MORE ACCURATE AND DETAILED EVALUATION. THEREFORE, YOU CAN OFFER A GREATER NUMBER OF ITEMS WHERE POSSIBLE AND PROVIDE LONGER RESPONSES TO ALLOW FOR MORE DETAIL.
+- Keep in mind that the entire document must be completely consistent and cannot contradict the results provided for the agents.
 - The AI should generate the transcriptions and qualifications ensuring high accuracy by leveraging audio data, including voice tone, speech patterns, interruptions, and other natural indicators.
 - If the audio or quality lacks sufficient detail for qualification, your response should simply state: "This call doesn't have enough information to provide a fair qualification."
 - don't worries abpout ouput tokens so provide the entire transcript and qualification

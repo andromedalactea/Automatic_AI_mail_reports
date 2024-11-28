@@ -26,7 +26,7 @@ def main_automatic_report():
         current_time_ny, start_of_day_ny = get_ny_time_and_start_of_day()
         
         ## DELETE NEXT LINE IN PRODUCTION
-        current_time_ny, start_of_day_ny = "2024-11-25 18:33", "2024-11-25 00:30"
+        # current_time_ny, start_of_day_ny = "2024-11-25 18:33", "2024-11-25 00:30"
 
         print(f"Current time in New York: {current_time_ny}")
         print(f"Start of the day in New York: {start_of_day_ny}")
