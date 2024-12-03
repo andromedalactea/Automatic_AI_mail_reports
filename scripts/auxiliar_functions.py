@@ -27,9 +27,11 @@ def get_ny_time_and_start_of_day():
 
     return ny_now_str, start_of_day_str
 
-def schedule_report(report_function, start_hour: int=18, start_minute: int=0, end_hour: int=18, end_minute: int=30):
+
+def schedule_report(report_function, start_hour: int = 18, start_minute: int = 0, end_hour: int = 18, end_minute: int = 30):
     """
-    Function to schedule the report between specified time intervals and avoid running it multiple times within the same interval.
+    Function to schedule the report between specified time intervals in the New York timezone and 
+    avoid running it multiple times within the same interval.
 
     Args:
         start_hour (int): Start hour of the interval (24-hour format). Default is 18 (6 PM).
@@ -37,15 +39,20 @@ def schedule_report(report_function, start_hour: int=18, start_minute: int=0, en
         end_hour (int): End hour of the interval (24-hour format). Default is 18 (6 PM).
         end_minute (int): End minute of the interval. Default is 30.
     """
-    while True:
-        now = datetime.now()
+    # Define the New York timezone
+    new_york_tz = pytz.timezone("America/New_York")
 
-        # Define the start and end times for the interval
-        start_time = now.replace(hour=start_hour, minute=start_minute, second=0, microsecond=0)
-        end_time = now.replace(hour=end_hour, minute=end_minute, second=0, microsecond=0)
+    while True:
+        # Get the current time in the New York timezone
+        now_utc = datetime.now(pytz.utc)  # Current UTC time
+        now_ny = now_utc.astimezone(new_york_tz)  # Convert UTC to New York time
+
+        # Define the start and end times for the interval in the New York timezone
+        start_time = now_ny.replace(hour=start_hour, minute=start_minute, second=0, microsecond=0)
+        end_time = now_ny.replace(hour=end_hour, minute=end_minute, second=0, microsecond=0)
 
         # Check if the current time is within the specified interval
-        if start_time <= now <= end_time:
+        if start_time <= now_ny <= end_time:
             # Try to generate the report
             result = report_function()
             if result == "success":
@@ -58,10 +65,11 @@ def schedule_report(report_function, start_hour: int=18, start_minute: int=0, en
                 time.sleep(60)
         else:
             # If not within the interval, sleep for a while before checking again
-            print("Not in the time interval. Checking again in 30 minutes.")
-            print("Current time is:", now)
+            print("Not in the time interval. Checking again in 15 minutes.")
+            print("Current time in New York is:", now_ny)
             time.sleep(15 * 60)
 
+            
 def absolute_path(relative_path):
     return os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), relative_path))     
 
